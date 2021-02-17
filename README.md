@@ -3,7 +3,7 @@ Seeking to recreate the work demonstrated in A Multi-Branch 3D Convolutional Neu
 
 DOI: 10.1109/TNSRE.2019.2938295
 
-#Challenges
+# Challenges
 
 Implementation of the model based off the graphic supplied by the paper
 
