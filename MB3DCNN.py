@@ -1,3 +1,11 @@
+"""
+Matthew Houk
+
+Working to recreate results of paper listed in readme on behalf of NCSU BCI Lab
+
+
+"""
+
 import os
 import gc
 
