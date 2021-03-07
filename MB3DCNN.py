@@ -7,30 +7,24 @@ Test
 
 """
 
-import os
-import gc
-
 import warnings
 warnings.filterwarnings("ignore")
 
+import numpy as np
 import tensorflow as tf
 from keras import layers
 from keras import backend as K
-from keras import regularizers
-from keras.constraints import max_norm
-from keras.models import Sequential
-from keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
-from keras.models import load_model
-from keras.models import Model, clone_model
-from keras.initializers import glorot_uniform
-from keras.layers import Conv3D, Input, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D, AveragePooling2D, MaxPooling2D, Dropout, Add, Softmax, Concatenate
-
-import matplotlib.pyplot as plt
+from keras.models import Model
+from keras.optimizers import Adam
+from keras.callbacks import Callback
+from keras.layers import Conv3D, Input, Dense, Activation, BatchNormalization, Flatten, Add, Softmax
 
 # Global Variables
 
-NUM_CLASSES = 5
-TIMESTEPS = 10
+DATA_DIR = "../datasets/BCICIV_2a_processed/"
+
+NUM_CLASSES = 4
+TIMESTEPS = 240
 
 SRF_SIZE = (2, 2, 1)
 MRF_SIZE = (2, 2, 3)
@@ -40,11 +34,33 @@ SRF_STRIDES = (2, 2, 1)
 MRF_STRIDES = (2, 2, 2)
 LRF_STRIDES = (2, 2, 4)
 
+class LearningRateReducerCb(Callback):
+	def on_epoch_end(self, epoch, logs={}):
+		old_lr = self.model.optimizer.lr.read_value()
+		new_lr = old_lr*0.1
+		print("\nEpoch: {}. Reducing Learning Rate from {} to {}".format(epoch, old_lr, new_lr))
+		self.model.optimizer.lr.assign(new_lr)	
+
+def Loss_FN(y_true, y_pred, sample_weight=None):
+#	return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1)
+	n_dims = int(int(y_pred.shape[1])/2)
+	mu = y_pred[:, 0:n_dims]
+	logsigma = y_pred[:, n_dims:]
+	mse = -0.5*K.sum(K.square((y_true-mu)/K.exp(logsigma)), axis=1)
+	sigma_trace = -K.sum(logsigma, axis=1)
+	log2pi = -0.5*n_dims*np.log(2*np.pi)
+	log_likelihood = mse+sigma_trace+log2pi
+	return K.mean(-log_likelihood)
+
+def load_data(data_dir, num):
+	x = np.load(data_dir + "A0" + str(num) + "T_cropped_shuffled.npy").astype(np.float32)
+	y = np.load(data_dir + "A0" + str(num) + "TK_cropped_shuffled.npy").astype(np.float32)
+	return x, y
 
 def Create_Model():
 	# Model Creation
 
-	model1 = Input(shape=(6, 7, TIMESTEPS, 1))
+	model1 = Input(shape=(7, 6, TIMESTEPS, 1))
 	model1a = Conv3D(kernel_size = (3, 3, 5), strides = (2, 2, 4), filters=16, name="Conv1")(model1)
 	model1b = BatchNormalization()(model1a)
 	model1c = Activation('elu')(model1b)
@@ -128,5 +144,14 @@ def Create_Model():
 
 MRF_model = Create_Model()
 
-MRF_model.compile()
+opt = Adam(learning_rate = 0.01)
+MRF_model.compile(loss=Loss_FN, optimizer=opt, metrics=['accuracy'])
 MRF_model.summary()
+
+X, Y = load_data(DATA_DIR, 1)
+
+MRF_model.fit(X, Y, callbacks=[LearningRateReducerCb()], epochs=30)
+
+_, acc = MRF_model.evaluate(X, Y)
+
+print("Accuracy: %.2f" % (acc*100))

@@ -2,7 +2,7 @@ import glob, os
 import numpy as np
 import mne
 
-SUBJECT = 1
+SUBJECT = 9
 DURATION = 313
 XDIM = 7
 YDIM = 6
