@@ -16,7 +16,7 @@ import tensorflow as tf
 from keras import layers
 from keras import backend as K
 from keras.models import Model
-from keras.optimizers import Adam
+from keras.optimizers import Adam, SGD
 from keras.callbacks import Callback
 from keras.layers import Conv3D, Input, Dense, Activation, BatchNormalization, Flatten, Add, Softmax
 
@@ -29,11 +29,17 @@ DATA_DIR = "../datasets/BCICIV_2a_processed/"
 NUM_CLASSES = 4
 # The number of timesteps in each input array
 TIMESTEPS = 240
+# The delta loss requirement for lower training rate
+LOSS_THRESHOLD = 0.01
+# Initial learning rate for ADAM optimizer
+INIT_LR = 0.005
+# Define Which NLL (Negative Log Likelihood) Loss function to use, either "NLL1" or "NLL2"
+LOSS_FUNCTION = 'NLL2'
 
 # Receptive field sizes
 SRF_SIZE = (2, 2, 1)
-MRF_SIZE = (2, 2, 3)
-LRF_SIZE = (2, 2, 5)
+MRF_SIZE = (2, 2, 4)
+LRF_SIZE = (2, 2, 7)
 
 # Strides for each receptive field
 SRF_STRIDES = (2, 2, 1)
@@ -43,15 +49,27 @@ LRF_STRIDES = (2, 2, 4)
 # This is meant to handle the reduction of the learning rate, current is not accurate, I have been unable to access the loss information from each Epoch
 # The expectation is that if the delta loss is < threshold, learning rate *= 0.1. Threshold has not been set yet.
 class LearningRateReducerCb(Callback):
+	def __init__(self):
+		self.history = {}
 	def on_epoch_end(self, epoch, logs={}):
-		old_lr = self.model.optimizer.lr.read_value()
-		new_lr = old_lr*0.1
-		print("\nEpoch: {}. Reducing Learning Rate from {} to {}".format(epoch, old_lr, new_lr))
-		self.model.optimizer.lr.assign(new_lr)	
+
+		for k, v in logs.items():
+			self.history.setdefault(k, []).append(v)
+				
+		fin_index = len(self.history['loss']) - 1
+		if (fin_index >= 1):
+			if (self.history['loss'][fin_index-1] - self.history['loss'][fin_index] > LOSS_THRESHOLD):
+				old_lr = self.model.optimizer.lr.read_value()
+				new_lr = old_lr*0.1
+				print("\nEpoch: {}. Reducing Learning Rate from {} to {}".format(epoch, old_lr, new_lr))
+				self.model.optimizer.lr.assign(new_lr)	
 
 # The Negative Log Likelihood function
-def Loss_FN(y_true, y_pred, sample_weight=None):
-#	return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1) # This is another loss function that I tried, was less effective
+def Loss_FN1(y_true, y_pred, sample_weight=None):
+	return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1) # This is another loss function that I tried, was less effective
+
+# Second NLL function, generally seems to work better
+def Loss_FN2(y_true, y_pred, sample_weight=None):
 	n_dims = int(int(y_pred.shape[1])/2)
 	mu = y_pred[:, 0:n_dims]
 	logsigma = y_pred[:, n_dims:]
@@ -61,6 +79,7 @@ def Loss_FN(y_true, y_pred, sample_weight=None):
 	log_likelihood = mse+sigma_trace+log2pi
 	return K.mean(-log_likelihood)
 
+	
 # Loads given data into two arrays, x and y, while also ensuring that all values are formatted as float32s
 def load_data(data_dir, num):
 	x = np.load(data_dir + "A0" + str(num) + "T_cropped_shuffled.npy").astype(np.float32)
@@ -103,8 +122,8 @@ def Create_Model():
 	modelsrf12 = Activation('relu')(modelsrf11)
 
 	# Dense Layer
-	modelsrf13 = Dense(NUM_CLASSES)(modelsrf12)
-	modelsrf_final = Softmax()(modelsrf13)
+	modelsrf_final = Dense(NUM_CLASSES, activation='softmax')(modelsrf12)
+	#modelsrf_final = Softmax()(modelsrf13)
 
 
 	# Medium Receptive Field (MRF)
@@ -133,8 +152,8 @@ def Create_Model():
 	modelmrf12 = Activation('relu')(modelmrf11)
 
 	# Dense Layer
-	modelmrf13 = Dense(NUM_CLASSES)(modelmrf12)
-	modelmrf_final = Softmax()(modelmrf13)
+	modelmrf_final = Dense(NUM_CLASSES, activation='softmax')(modelmrf12)
+	#modelmrf_final = Softmax()(modelmrf13)
 
 	# Large Receptive Field (LRF)
 
@@ -162,8 +181,8 @@ def Create_Model():
 	modellrf12 = Activation('relu')(modellrf11)
 
 	# Dense Layer
-	modellrf13 = Dense(NUM_CLASSES)(modellrf12)
-	modellrf_final = Softmax()(modellrf13)
+	modellrf_final = Dense(NUM_CLASSES, activation='softmax')(modellrf12)
+	#modellrf_final = Softmax()(modellrf13)
 
 	# Add the layers - This sums each layer
 	final = Add()([modelsrf_final, modelmrf_final, modellrf_final])
@@ -175,10 +194,15 @@ def Create_Model():
 
 MRF_model = Create_Model()
 
+if (LOSS_FUNCTION == 'NLL1'):
+	loss_function = Loss_FN1
+elif (LOSS_FUNCTION == 'NLL2'):
+	loss_function = Loss_FN2
+
 # Optimizer is given as ADAM with an initial learning rate of 0.01
-opt = Adam(learning_rate = 0.01)
+opt = Adam(learning_rate = INIT_LR)
 # Compiling the model with the negative log likelihood loss function, ADAM optimizer
-MRF_model.compile(loss=Loss_FN, optimizer=opt, metrics=['accuracy'])
+MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 MRF_model.summary()
 
 X, Y = load_data(DATA_DIR, 1)
