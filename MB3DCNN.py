@@ -19,11 +19,14 @@ from keras.models import Model
 from keras.optimizers import Adam, SGD
 from keras.callbacks import Callback
 from keras.layers import Conv3D, Input, Dense, Activation, BatchNormalization, Flatten, Add, Softmax
+from sklearn.model_selection import StratifiedKFold
 
 # Global Variables
 
 # The directory of the process data, must have been converted and cropped, reference dataProcessing.py and crop.py
 DATA_DIR = "../datasets/BCICIV_2a_processed/"
+# Which trial subject will be trained
+SUBJECT = 1
 
 # The number of classification categories, for motor imagery, there are 4
 NUM_CLASSES = 4
@@ -32,14 +35,25 @@ TIMESTEPS = 240
 # The delta loss requirement for lower training rate
 LOSS_THRESHOLD = 0.01
 # Initial learning rate for ADAM optimizer
-INIT_LR = 0.005
-# Define Which NLL (Negative Log Likelihood) Loss function to use, either "NLL1" or "NLL2"
+INIT_LR = 0.01
+# Define Which NLL (Negative Log Likelihood) Loss function to use, either "NLL1", "NLL2", or "SCCE"
 LOSS_FUNCTION = 'NLL2'
+# Defines which optimizer is in use, either "ADAM" or "SGD"
+OPTIMIZER = 'SGD'
+# Whether training output should be given
+VERBOSE = 1
+# Determines whether K-Fold Cross Validation is used
+USE_KFOLD = False
+# Number of ksplit validation, must be atleast 2
+KFOLD_NUM = 2
+
+# Number of epochs to train for
+EPOCHS = 10
 
 # Receptive field sizes
 SRF_SIZE = (2, 2, 1)
-MRF_SIZE = (2, 2, 4)
-LRF_SIZE = (2, 2, 7)
+MRF_SIZE = (2, 2, 3)
+LRF_SIZE = (2, 2, 5)
 
 # Strides for each receptive field
 SRF_STRIDES = (2, 2, 1)
@@ -86,6 +100,26 @@ def load_data(data_dir, num):
 	y = np.load(data_dir + "A0" + str(num) + "TK_cropped_shuffled.npy").astype(np.float32)
 	return x, y
 
+def create_receptive_field(size, strides, model, name):
+	modelRF = Conv3D(kernel_size = size, strides=strides, filters=32, padding='same', name=name+'1')(model)
+	modelRF1 = BatchNormalization()(modelRF)
+	modelRF2 = Activation('elu')(modelRF1)
+
+	modelRF3 = Conv3D(kernel_size = size, strides=strides, filters=64, padding='same', name=name+'2')(modelRF2)
+	modelRF4 = BatchNormalization()(modelRF3)
+	modelRF5 = Activation('elu')(modelRF4)
+
+	modelRF6 = Flatten()(modelRF5)
+
+	modelRF7 = Dense(32)(modelRF6)
+	modelRF8 = BatchNormalization()(modelRF7)
+	modelRF9 = Activation('relu')(modelRF8)
+
+	modelRF10 = Dense(32)(modelRF9)
+	modelRF11 = BatchNormalization()(modelRF10)
+	modelRF12 = Activation('relu')(modelRF11)
+	return Dense(NUM_CLASSES, activation='softmax')(modelRF12)
+
 def Create_Model():
 	# Model Creation
 
@@ -98,119 +132,66 @@ def Create_Model():
 
 	# Small Receptive Field (SRF)
 
-	# 2nd Convolution Layer
-	modelsrf = Conv3D(kernel_size = SRF_SIZE, strides = SRF_STRIDES, filters=32, padding='same', name='SRF1')(model1c)
-	modelsrf1 = BatchNormalization()(modelsrf)
-	modelsrf2 = (Activation('elu'))(modelsrf1)
-
-	# 3rd Convolution Layer
-	modelsrf3 = Conv3D(kernel_size = SRF_SIZE, strides = SRF_STRIDES, filters=64, padding='same', name='SRF2')(modelsrf2)
-	modelsrf4 = BatchNormalization()(modelsrf3)
-	modelsrf5 = Activation('elu')(modelsrf4)
-
-	# Flatten
-	modelsrf6 = Flatten()(modelsrf5)
-
-	# Dense Layer
-	modelsrf7 = Dense(32)(modelsrf6)
-	modelsrf8 = BatchNormalization()(modelsrf7)
-	modelsrf9 = Activation('relu')(modelsrf8)
-
-	# Dense Layer
-	modelsrf10 = Dense(32)(modelsrf9)
-	modelsrf11 = BatchNormalization()(modelsrf10)
-	modelsrf12 = Activation('relu')(modelsrf11)
-
-	# Dense Layer
-	modelsrf_final = Dense(NUM_CLASSES, activation='softmax')(modelsrf12)
-	#modelsrf_final = Softmax()(modelsrf13)
-
-
+	modelSRF = create_receptive_field(SRF_SIZE, SRF_STRIDES, model1c, 'SRF')
+	
 	# Medium Receptive Field (MRF)
 
-	# 2nd Convolution Layer
-	modelmrf = Conv3D(kernel_size = MRF_SIZE, strides = MRF_STRIDES, filters=32, padding='same', name='MRF1')(model1c)
-	modelmrf1 = BatchNormalization()(modelmrf)
-	modelmrf2 = Activation('elu')(modelmrf1)
-
-	# 3rd Convolution Layer
-	modelmrf3 = Conv3D(kernel_size = MRF_SIZE, strides = MRF_STRIDES, filters=64, padding='same', name='MRF2')(modelmrf2)
-	modelmrf4 = BatchNormalization()(modelmrf3)
-	modelmrf5 = Activation('elu')(modelmrf4)
-
-	# Flatten
-	modelmrf6 = Flatten()(modelmrf5)
-
-	# Dense Layer
-	modelmrf7 = Dense(32)(modelmrf6)
-	modelmrf8 = BatchNormalization()(modelmrf7)
-	modelmrf9 = Activation('relu')(modelmrf8)
-
-	# Dense Layer
-	modelmrf10 = Dense(32)(modelmrf9)
-	modelmrf11 = BatchNormalization()(modelmrf10)
-	modelmrf12 = Activation('relu')(modelmrf11)
-
-	# Dense Layer
-	modelmrf_final = Dense(NUM_CLASSES, activation='softmax')(modelmrf12)
-	#modelmrf_final = Softmax()(modelmrf13)
+	modelMRF = create_receptive_field(MRF_SIZE, MRF_STRIDES, model1c, 'MRF')
 
 	# Large Receptive Field (LRF)
-
-	# 2nd Convolution Layer
-	modellrf = Conv3D(kernel_size = LRF_SIZE, strides = LRF_STRIDES, filters=32, padding='same', name='LRF1')(model1c)
-	modellrf1 = BatchNormalization()(modellrf)
-	modellrf2 = Activation('elu')(modellrf1)
-
-	# 3rd Convolution Layer
-	modellrf3 = Conv3D(kernel_size = LRF_SIZE, strides = LRF_STRIDES, filters=64, padding='same', name='LRF2')(modellrf2)
-	modellrf4 = BatchNormalization()(modellrf3)
-	modellrf5 = Activation('elu')(modellrf4)
-
-	# Flatten
-	modellrf6 = Flatten()(modellrf5)
-
-	# Dense Layer
-	modellrf7 = Dense(32)(modellrf6)
-	modellrf8 = BatchNormalization()(modellrf7)
-	modellrf9 = Activation('relu')(modellrf8)
-
-	# Dense Layer
-	modellrf10 = Dense(32)(modellrf9)
-	modellrf11 = BatchNormalization()(modellrf10)
-	modellrf12 = Activation('relu')(modellrf11)
-
-	# Dense Layer
-	modellrf_final = Dense(NUM_CLASSES, activation='softmax')(modellrf12)
-	#modellrf_final = Softmax()(modellrf13)
+	
+	modelLRF = create_receptive_field(LRF_SIZE, LRF_STRIDES, model1c, 'LRF')
 
 	# Add the layers - This sums each layer
-	final = Add()([modelsrf_final, modelmrf_final, modellrf_final])
+	final = Add()([modelSRF, modelMRF, modelLRF])
 	out = Softmax()(final)
 
 	model = Model(inputs=model1, outputs=out)
 
 	return model
 
-MRF_model = Create_Model()
-
 if (LOSS_FUNCTION == 'NLL1'):
 	loss_function = Loss_FN1
 elif (LOSS_FUNCTION == 'NLL2'):
 	loss_function = Loss_FN2
+elif (LOSS_FUNCTION == 'SCCE'):
+	loss_function = 'sparse_categorical_crossentropy'
 
 # Optimizer is given as ADAM with an initial learning rate of 0.01
-opt = Adam(learning_rate = INIT_LR)
-# Compiling the model with the negative log likelihood loss function, ADAM optimizer
-MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
-MRF_model.summary()
+if (OPTIMIZER == 'ADAM'):
+	opt = Adam(learning_rate = INIT_LR)
+elif (OPTIMIZER == 'SGD'):
+	opt = SGD(learning_rate = INIT_LR)
 
-X, Y = load_data(DATA_DIR, 1)
+X, Y = load_data(DATA_DIR, SUBJECT)
 
-# Training for 30 epochs
-MRF_model.fit(X, Y, callbacks=[LearningRateReducerCb()], epochs=30)
+if (USE_KFOLD):
+	seed = 4
+	kfold = StratifiedKFold(n_splits=KFOLD_NUM, shuffle=True, random_state=seed)
+	cvscores = []
 
-# Evaluating the effectiveness of the model
-_, acc = MRF_model.evaluate(X, Y)
+	for train, test in kfold.split(X, Y):
+		MRF_model = Create_Model()
+		# Compiling the model with the negative log likelihood loss function, ADAM optimizer
+		MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 
-print("Accuracy: %.2f" % (acc*100))
+		# Training for 30 epochs
+		MRF_model.fit(X[train], Y[train], epochs=30, verbose=VERBOSE)
+
+		# Evaluating the effectiveness of the model
+		scores = MRF_model.evaluate(X[test], Y[test], verbose=VERBOSE)
+		print("%s: %.2f%%" % (MRF_model.metrics_names[1], scores[1]*100))
+		cvscores.append(scores[1]*100)
+
+	print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+
+else:
+	MRF_model = Create_Model()
+
+	MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
+	
+	MRF_model.fit(X, Y, epochs=EPOCHS, verbose=VERBOSE)
+
+	_, acc = MRF_model.evaluate(X, Y, verbose=VERBOSE)
+
+	print("Accuracy: %.2f" % (acc*100))
