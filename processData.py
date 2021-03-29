@@ -15,14 +15,14 @@ print("Setting dimensions of processed data")
 
 processor.set_dimensions(7, 6, 313)
 
-print("Loading processed data")
+print("Loading cropped data")
 
-processor.loadProcessedData()
+processor.loadCroppedData(file_type="E")
 
-print("Cropping Data")
+print("Average cropped data")
 
-processor.cropData()
+processor.averageCroppedData()
 
-#print("Saving cropped data")
+print("Saving Averaged Data as cropped data")
 
-#processor.saveCroppedData()
+processor.saveCroppedData()

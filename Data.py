@@ -245,9 +245,16 @@ class DataProcessing:
 				k = np.array(l)
 				self.cropped_eval_data[key] = [d, k]
 				del(self.processed_eval_data[key])
+				if (save_mem):
+					self.saveSingleCroppedSubject(key, "E")
+					del(self.cropped_eval_data[key])
 
 	def saveCroppedData(self):
-		try: self.cropped_training_data, self.cropped_eval_data
+		try: 
+			if ("T" in self.file_type):
+				self.cropped_training_data
+			if ("E" in self.file_type):
+				self.cropped_eval_data
 		except NameError:
 			print("Data not yet cropped, please call cropData() or loadCroppedData() before this.")
 			return
@@ -262,12 +269,67 @@ class DataProcessing:
 				np.save(fileBase + "D_cropped.npy", self.cropped_eval_data[key][0])
 				np.save(fileBase + "K_cropped.npy", self.cropped_eval_data[key][1])
 
-#	def loadCroppedData():
+	def loadCroppedData(self, file_type="B"):
+		if (file_type != "T" and file_type != "E" and file_type != "B"):
+			print("Please call loadCroppedData(file_type) with a value file_type of either 'T', 'E', or 'B'")
+			return
+		self.cropped_training_data = {}
+		self.cropped_eval_data = {}
+		if ("B" == file_type):
+			file_type = "TE";
+		self.file_type = file_type
+		if ("T" in file_type):
+			try:
+				fileBase = CROPPED_DIR + "A0"
+				fileSuffD = "TD_cropped.npy"
+				fileSuffK = "TK_cropped.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.cropped_training_data[key] = [d, k]
+			except FileNotFoundError:
+				self.cropped_training_data = {}
+				print("Cropped Training Data not found, please check file system")
+		if ("E" in file_type):
+			try:
+				fileBase = CROPPED_DIR + "A0"
+				fileSuffD = "ED_cropped.npy"
+				fileSuffK = "EK_cropped.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.cropped_eval_data[key] = [d, k]
+			except FileNotFoundError:
+				self.cropped_eval_data = {}
+				print("Cropped Evaluation Data not found, please check file system")
 
-
-
-#	def averageCroppedData():
-
+	def averageCroppedData(self):
+		try: 
+			if ("T" in self.file_type):
+				self.cropped_training_data
+			if ("E" in self.file_type):
+				self.cropped_eval_data
+		except NameError:
+			print("Data not yet cropped, please call cropData() or loadCroppedData() before this.")
+			return
+		if ("T" in self.file_type):
+			for key in self.cropped_training_data:
+				for sample in range(len(self.cropped_training_data[key][0])):
+					a = np.zeros((7, 6))
+					for i in range(7):
+						for j in range(6):
+							a[i, j] = np.average(self.cropped_training_data[key][0][sample][i, j])
+					a = np.repeat(a[:, :, np.newaxis], 240, axis=2)
+					self.cropped_training_data[key][0][sample] = self.cropped_training_data[key][0][sample] - a	
+		if ("E" in self.file_type):
+			for key in self.cropped_eval_data:
+				for sample in range(len(self.cropped_eval_data[key][0])):
+					a = np.zeros((7, 6))
+					for i in range(7):
+						for j in range(6):
+							a[i, j] = np.average(self.cropped_eval_data[key][0][sample][i, j])
+					a = np.repeat(a[:, :, np.newaxis], 240, axis=2)
+					self.cropped_eval_data[key][0][sample] = self.cropped_eval_data[key][0][sample] - a	
 
 
 #	def saveAveragedCroppedData():

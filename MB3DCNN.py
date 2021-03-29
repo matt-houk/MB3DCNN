@@ -21,10 +21,12 @@ from keras.callbacks import Callback
 from keras.layers import Conv3D, Input, Dense, Activation, BatchNormalization, Flatten, Add, Softmax
 from sklearn.model_selection import StratifiedKFold
 
+from DonghyunMBCNN import MultiBranchCNN
+
 # Global Variables
 
 # The directory of the process data, must have been converted and cropped, reference dataProcessing.py and crop.py
-DATA_DIR = "../datasets/BCICIV_2a_processed/"
+DATA_DIR = "../datasets/BCICIV_2a_cropped/"
 # Which trial subject will be trained
 SUBJECT = 1
 
@@ -32,6 +34,10 @@ SUBJECT = 1
 NUM_CLASSES = 4
 # The number of timesteps in each input array
 TIMESTEPS = 240
+# The X-Dimension of the dataset
+XDIM = 7
+# The Y-Dimension of the dataset
+YDIM = 6
 # The delta loss requirement for lower training rate
 LOSS_THRESHOLD = 0.01
 # Initial learning rate for ADAM optimizer
@@ -46,6 +52,8 @@ VERBOSE = 1
 USE_KFOLD = False
 # Number of ksplit validation, must be atleast 2
 KFOLD_NUM = 2
+# Specifies which model structure will be used, '1' corresponds to the Create_Model function and '2' corresponds to Donghyun's model.
+USE_STRUCTURE = '2'
 
 # Number of epochs to train for
 EPOCHS = 10
@@ -96,8 +104,8 @@ def Loss_FN2(y_true, y_pred, sample_weight=None):
 	
 # Loads given data into two arrays, x and y, while also ensuring that all values are formatted as float32s
 def load_data(data_dir, num):
-	x = np.load(data_dir + "A0" + str(num) + "T_cropped_shuffled.npy").astype(np.float32)
-	y = np.load(data_dir + "A0" + str(num) + "TK_cropped_shuffled.npy").astype(np.float32)
+	x = np.load(data_dir + "A0" + str(num) + "TD_cropped.npy").astype(np.float32)
+	y = np.load(data_dir + "A0" + str(num) + "TK_cropped.npy").astype(np.float32)
 	return x, y
 
 def create_receptive_field(size, strides, model, name):
@@ -123,7 +131,7 @@ def create_receptive_field(size, strides, model, name):
 def Create_Model():
 	# Model Creation
 
-	model1 = Input(shape=(7, 6, TIMESTEPS, 1))
+	model1 = Input(shape=(1, XDIM, YDIM, TIMESTEPS))
 
 	# 1st Convolution Layer
 	model1a = Conv3D(kernel_size = (3, 3, 5), strides = (2, 2, 4), filters=16, name="Conv1")(model1)
@@ -171,7 +179,10 @@ if (USE_KFOLD):
 	cvscores = []
 
 	for train, test in kfold.split(X, Y):
-		MRF_model = Create_Model()
+		if (USE_STRUCTURE == '1'):
+			MRF_model = Create_Model()
+		elif (USE_STRUCTURE == '2'):
+			MRF_model = MultiBranchCNN(TIMESTEPS, YDIM, XDIM, NUM_CLASSES)
 		# Compiling the model with the negative log likelihood loss function, ADAM optimizer
 		MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 
@@ -186,7 +197,10 @@ if (USE_KFOLD):
 	print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
 
 else:
-	MRF_model = Create_Model()
+	if (USE_STRUCTURE == '1'):
+		MRF_model = Create_Model()
+	elif (USE_STRUCTURE == '2'):
+		MRF_model = MultiBranchCNN(TIMESTEPS, YDIM, XDIM, NUM_CLASSES)
 
 	MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 	
