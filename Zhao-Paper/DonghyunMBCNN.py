@@ -1,14 +1,8 @@
 from tensorflow.keras import utils as np_utils
-from tensorflow.keras.backend import image_data_format, set_image_data_format
 from tensorflow.keras.layers import Input, Dense, Flatten, Conv3D, MaxPooling3D, Activation, BatchNormalization
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.models import load_model, Model
 import tensorflow as tf
-
-print(image_data_format())
-#set_image_data_format('channels_first')
-print(image_data_format())
-
 
 def MultiBranchCNN(Timesteps, Width, Height, Num_classes):
     Timesteps = Timesteps

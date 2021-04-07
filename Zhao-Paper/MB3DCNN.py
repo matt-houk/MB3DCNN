@@ -18,6 +18,7 @@ from keras import backend as K
 from keras.models import Model
 from keras.optimizers import Adam, SGD
 from keras.callbacks import Callback
+from keras.backend import image_data_format, set_image_data_format
 from keras.layers import Conv3D, Input, Dense, Activation, BatchNormalization, Flatten, Add, Softmax
 from sklearn.model_selection import StratifiedKFold
 
@@ -28,7 +29,7 @@ from DonghyunMBCNN import MultiBranchCNN
 # The directory of the process data, must have been converted and cropped, reference dataProcessing.py and crop.py
 DATA_DIR = "../datasets/BCICIV_2a_cropped/"
 # Which trial subject will be trained
-SUBJECT = 1
+SUBJECT = 2
 
 # The number of classification categories, for motor imagery, there are 4
 NUM_CLASSES = 4
@@ -39,19 +40,19 @@ XDIM = 7
 # The Y-Dimension of the dataset
 YDIM = 6
 # The delta loss requirement for lower training rate
-LOSS_THRESHOLD = 0.01
+LOSS_THRESHOLD = 0.1
 # Initial learning rate for ADAM optimizer
-INIT_LR = 0.01
+INIT_LR = 0.00001
 # Define Which NLL (Negative Log Likelihood) Loss function to use, either "NLL1", "NLL2", or "SCCE"
 LOSS_FUNCTION = 'NLL2'
 # Defines which optimizer is in use, either "ADAM" or "SGD"
-OPTIMIZER = 'SGD'
+OPTIMIZER = 'ADAM'
 # Whether training output should be given
 VERBOSE = 1
 # Determines whether K-Fold Cross Validation is used
 USE_KFOLD = False
 # Number of ksplit validation, must be atleast 2
-KFOLD_NUM = 2
+KFOLD_NUM = 5
 # Specifies which model structure will be used, '1' corresponds to the Create_Model function and '2' corresponds to Donghyun's model.
 USE_STRUCTURE = '2'
 
@@ -59,9 +60,10 @@ USE_STRUCTURE = '2'
 EPOCHS = 10
 
 # Receptive field sizes
-SRF_SIZE = (2, 2, 1)
-MRF_SIZE = (2, 2, 3)
-LRF_SIZE = (2, 2, 5)
+CONV1_SIZE = (3, 3, 5)
+SRF_SIZE = ((5, 5, 5), (6, 7, 5))
+MRF_SIZE = ((5, 5, 13), (6, 7, 29))
+LRF_SIZE = ((5, 5, 21), (6, 7, 85))
 
 # Strides for each receptive field
 SRF_STRIDES = (2, 2, 1)
@@ -103,17 +105,17 @@ def Loss_FN2(y_true, y_pred, sample_weight=None):
 
 	
 # Loads given data into two arrays, x and y, while also ensuring that all values are formatted as float32s
-def load_data(data_dir, num):
-	x = np.load(data_dir + "A0" + str(num) + "TD_cropped.npy").astype(np.float32)
-	y = np.load(data_dir + "A0" + str(num) + "TK_cropped.npy").astype(np.float32)
+def load_data(data_dir, num, file_type):
+	x = np.load(data_dir + "A0" + str(num) + file_type + "D_cropped.npy").astype(np.float32)
+	y = np.load(data_dir + "A0" + str(num) + file_type + "K_cropped.npy").astype(np.float32)
 	return x, y
 
 def create_receptive_field(size, strides, model, name):
-	modelRF = Conv3D(kernel_size = size, strides=strides, filters=32, padding='same', name=name+'1')(model)
+	modelRF = Conv3D(kernel_size = size[0], strides=strides, filters=32, padding='same', name=name+'1')(model)
 	modelRF1 = BatchNormalization()(modelRF)
 	modelRF2 = Activation('elu')(modelRF1)
 
-	modelRF3 = Conv3D(kernel_size = size, strides=strides, filters=64, padding='same', name=name+'2')(modelRF2)
+	modelRF3 = Conv3D(kernel_size = size[1], strides=strides, filters=64, padding='same', name=name+'2')(modelRF2)
 	modelRF4 = BatchNormalization()(modelRF3)
 	modelRF5 = Activation('elu')(modelRF4)
 
@@ -131,10 +133,10 @@ def create_receptive_field(size, strides, model, name):
 def Create_Model():
 	# Model Creation
 
-	model1 = Input(shape=(1, XDIM, YDIM, TIMESTEPS))
+	model1 = Input(shape=(XDIM, YDIM, TIMESTEPS, 1))
 
 	# 1st Convolution Layer
-	model1a = Conv3D(kernel_size = (3, 3, 5), strides = (2, 2, 4), filters=16, name="Conv1")(model1)
+	model1a = Conv3D(kernel_size = CONV1_SIZE, strides = (2, 2, 4), filters=16, name="Conv1")(model1)
 	model1b = BatchNormalization()(model1a)
 	model1c = Activation('elu')(model1b)
 
@@ -152,11 +154,17 @@ def Create_Model():
 
 	# Add the layers - This sums each layer
 	final = Add()([modelSRF, modelMRF, modelLRF])
-	out = Softmax()(final)
+	final_dense = Dense(NUM_CLASSES)(final)
+	out = Softmax()(final_dense)
+
+
 
 	model = Model(inputs=model1, outputs=out)
 
 	return model
+
+#if (USE_STRUCTURE == '2'):
+#	set_image_data_format('channels_first')
 
 if (LOSS_FUNCTION == 'NLL1'):
 	loss_function = Loss_FN1
@@ -171,8 +179,8 @@ if (OPTIMIZER == 'ADAM'):
 elif (OPTIMIZER == 'SGD'):
 	opt = SGD(learning_rate = INIT_LR)
 
-X, Y = load_data(DATA_DIR, SUBJECT)
-
+X, Y = load_data(DATA_DIR, SUBJECT, "T")
+X_val, Y_val = load_data(DATA_DIR, SUBJECT, "E")
 if (USE_KFOLD):
 	seed = 4
 	kfold = StratifiedKFold(n_splits=KFOLD_NUM, shuffle=True, random_state=seed)
@@ -187,10 +195,10 @@ if (USE_KFOLD):
 		MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 
 		# Training for 30 epochs
-		MRF_model.fit(X[train], Y[train], epochs=30, verbose=VERBOSE)
+		MRF_model.fit(X[train], Y[train], epochs=30, verbose=VERBOSE, validation_data=(X_val[train], Y_val[train]))
 
 		# Evaluating the effectiveness of the model
-		scores = MRF_model.evaluate(X[test], Y[test], verbose=VERBOSE)
+		scores = MRF_model.evaluate(X_val[test], Y_val[test], verbose=VERBOSE)
 		print("%s: %.2f%%" % (MRF_model.metrics_names[1], scores[1]*100))
 		cvscores.append(scores[1]*100)
 
@@ -204,8 +212,8 @@ else:
 
 	MRF_model.compile(loss=loss_function, optimizer=opt, metrics=['accuracy'])
 	
-	MRF_model.fit(X, Y, epochs=EPOCHS, verbose=VERBOSE)
+	MRF_model.fit(X, Y, epochs=EPOCHS, verbose=VERBOSE, validation_data=(X_val, Y_val))
 
-	_, acc = MRF_model.evaluate(X, Y, verbose=VERBOSE)
+	_, acc = MRF_model.evaluate(X_val, Y_val, verbose=VERBOSE)
 
 	print("Accuracy: %.2f" % (acc*100))
