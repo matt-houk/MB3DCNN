@@ -1,0 +1,29 @@
+2021-04-14 15:38:13.387803: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-14 15:38:13.389424: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-14 15:38:13.391261: I tensorflow/core/common_runtime/process_util.cc:146] Creating new thread pool with default inter op setting: 16. Tune using inter_op_parallelism_threads for best performance.
+2021-04-14 15:38:16.646281: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-14 15:38:16.646895: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 1800000000 Hz
+Traceback (most recent call last):
+  File "run3d.py", line 58, in <module>
+    model.fit(X_data, Y_data, batch_size=16, epochs=100)
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 1100, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/def_function.py", line 828, in __call__
+    result = self._call(*args, **kwds)
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/def_function.py", line 888, in _call
+    return self._stateless_fn(*args, **kwds)
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 2942, in __call__
+    return graph_function._call_flat(
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 1918, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 555, in call
+    outputs = execute.execute(
+  File "/usr/local/usrapps/multibranch/mjhouk/env_tensorflow/lib/python3.8/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError:  input and filter must have the same depth: 8 vs 1
+	 [[node model/DepthwiseConv3D/Conv3D (defined at run3d.py:58) ]] [Op:__inference_train_function_1460]
+
+Function call stack:
+train_function
+
