@@ -51,6 +51,17 @@ X_data, Y_data = load_data(DATA_DIR, 1, "T")
 print("Input Shape:\n", X_data.shape)
 print("Output Shape:\n", Y_data.shape)
 
+X_data = X_data.reshape(21312, 7, 6, 240, 1)
+
+print("Input Shape Revised:\n", X_data.shape)
+
+print("Attempting to view convolutionary filter sizes")
+for layer in model.layers:
+	if 'Conv' not in layer.name:
+		continue
+	print(layer.name, layer.get_weights()[0].shape)
+
+
 model.fit(X_data, Y_data, epochs=10)
 
 _, acc = model.evaluate(X_data, Y_data)
