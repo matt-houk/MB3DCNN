@@ -1,3 +1,5 @@
+import sys
+
 import tensorflow as tf
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.keras.engine import input_spec
@@ -44,10 +46,10 @@ class DepthwiseConv3D(keras.layers.Conv3D):
 			dilation = self.dilation_rate + (1,) + (1,)
 		
 		if self.data_format == 'channels_first':
-			outputs = tf.concat([tf.nn.conv3d(inputs[:, i:i+self.input_dim//self.groups, :, :, :], self.depthwise_kernel[:, :, :, i:i+self.input_dim//self.groups, :], strides = self.strides, padding=self.padding, dilations=dilation, data_format=tf_data_format) for i in range(0, self.input_dim, self.input_dim//self.groups)], axis=1)
+			outputs = tf.concat([tf.nn.conv3d(inputs[:, i:i+self.input_dim, :, :, :], self.depthwise_kernel[:, :, :, i:i+self.input_dim, :], strides = self.strides, padding=self.padding, dilations=dilation, data_format=tf_data_format) for i in range(0, self.input_dim)], axis=1)
 
 		else:
-			outputs = tf.concat([tf.nn.conv3d(inputs[:, :, :, :, i:i+self.input_dim//self.groups], self.depthwise_kernel[:, :, :, i:i+self.input_dim//self.groups, :], strides=self.strides, padding=self.padding, dilations=dilation, data_format=tf_data_format) for i in range(0, self.input_dim, self.input_dim//self.groups)], axis=-1)
+			outputs = tf.concat([tf.nn.conv3d(inputs[:, :, :, :, i:i+self.input_dim], self.depthwise_kernel[:, :, :, i:i+self.input_dim, :], strides=self.strides, padding=self.padding, dilations=dilation, data_format=tf_data_format) for i in range(0, self.input_dim)], axis=-1)
 		
 		if self.bias is not None:
 			outputs = keras.backend.bias_add(outputs, self.bias, data_format=self.data_format)
@@ -57,26 +59,6 @@ class DepthwiseConv3D(keras.layers.Conv3D):
 
 		return outputs
 
-	def compute_output_shape(self, input_shape):
-		if self.data_format == 'channels_first':
-			rows = input_shape[2]
-			cols = input_shape[3]
-			depth = input_shape[4]
-			out_filters = input_shape[1] * self.depth_multiplier
-		elif self.data_format == 'channels_last':
-			rows = input_shape[1]
-			cols = input_shape[2]
-			depth = input_shape[3]
-			out_filters = input_shape[4] * self.depth_multiplier
-
-		rows = keras.utils.conv_utils.conv_output_length(rows, self.kernel_size[0], self.padding, self.strides[0], self.dilation_rate[0])
-		cols = keras.utils.conv_utils.conv_output_length(cols, self.kernel_size[1], self.padding, self.strides[1], self.dilation_rate[1])
-		depth = keras.utils.conv_utils.conv_output_length(depth, self.kernel_size[2], self.padding, self.strides[2], self.dilation_rate[2])
-
-		if self.data_format == 'channels_first':
-			return (input_shape[0], out_filters, rows, cols, depth)
-		elif self.data_format == 'channels_last':
-			return (input_shape[0], rows, cols, depth, out_filters)
 
 	def get_config(self):
 		config = super(DepthwiseConv3D, self).get_config()
