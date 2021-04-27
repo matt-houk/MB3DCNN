@@ -36,7 +36,7 @@ class DepthwiseConv3D(keras.layers.Conv3D):
 	
 		self.input_spec = input_spec.InputSpec(ndim=5, axes={channel_axis: self.input_dim})
 		self.built = True
-
+	
 	def call(self, inputs):
 		inputs, tf_data_format = _preprocess_conv3d_input(inputs, self.data_format)
 	
