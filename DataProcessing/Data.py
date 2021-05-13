@@ -9,19 +9,19 @@ from glob import glob
 
 FILE_PATTERN = "A0[1-9]"
 
-DEFAULT_DIR = "../datasets/BCICIV_2a_gdf/"
+DEFAULT_DIR = "/share/multibranch/datasets/BCICIV_2a_gdf/"
 
-PROCESSED_DIR = "../datasets/BCICIV_2a_processed/"
+PROCESSED_DIR = "/share/multibranch/datasets/BCICIV_2a_processed/"
 
-PROCESSED_2D_DIR = "../datasets/BCICIV_2a_2d_processed/"
+PROCESSED_2D_DIR = "/share/multibranch/datasets/BCICIV_2a_2d_processed/"
 
-CROPPED_DIR = "../datasets/BCICIV_2a_cropped/"
+CROPPED_DIR = "/share/multibranch/datasets/BCICIV_2a_cropped/"
 
 EVAL_KEYS_SUB_DIR = "true_labels/"
 
 IGNORE = ('EOG-left', 'EOG-central', 'EOG-right')
 
-SAVE_MEMORY = True
+SAVE_MEMORY = False
 
 USE03BOUNDS = True
 
