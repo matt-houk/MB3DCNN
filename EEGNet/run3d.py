@@ -1,9 +1,15 @@
 from EEGNet3D import EEGNet3D
 import numpy as np
+import sys
 
 from tensorflow.keras.backend import image_data_format, set_image_data_format
-
+from tensorflow.keras.callbacks import Callback
 from tensorflow.keras.optimizers import Adam
+
+from tensorflow.config.threading import set_intra_op_parallelism_threads, set_inter_op_parallelism_threads
+
+set_intra_op_parallelism_threads(2)
+set_inter_op_parallelism_threads(2)
 
 DATA_DIR = "/share/multibranch/datasets/BCICIV_2a_cropped/"
 
@@ -16,12 +22,18 @@ def load_data(data_dir, num, file_type):
 	y = np.load(data_dir + "A0" + str(num) + file_type + "K_cropped.npy").astype(np.float64)
 	return x, y
 
+class CustomCallback(Callback):
+	def on_epoch_end(self, epoch, logs=None):
+		print("Finished epoch {} with Loss: {} and Accuracy: {}".format(epoch, logs['loss'], logs['accuracy']))
+
+init_lr = float(sys.argv[1])
+F1 = int(sys.argv[2])
+F2 = int(sys.argv[3])
+D = int(sys.argv[4])
+
 X = 7
 Y = 6
 T = 240
-F1 = 8
-F2 = 16
-D = 2
 N = 4
 
 print("X:\t", X)
@@ -30,13 +42,14 @@ print("T:\t", T)
 print("F1:\t", F1)
 print("F2:\t", F2)
 print("D:\t", D)
-print("D:\t", N)
+print("N:\t", N)
+print("Learning Rate: ", init_lr)
 
 model = EEGNet3D(X, Y, T, F1, F2, D, N)
 
 loss_functions = ('sparse_categorical_crossentropy', 'mean_absolute_error')
 
-opt = Adam(0.001)
+opt = Adam(init_lr)
 
 print("Model compiling")
 
@@ -47,24 +60,11 @@ print("Model compiled")
 model.summary()
 
 X_data, Y_data = load_data(DATA_DIR, 1, "T")
+X_val, Y_val = load_data(DATA_DIR, 1, "E")
 
-print("Input Shape:\n", X_data.shape)
-print("Output Shape:\n", Y_data.shape)
+model.fit(X_data, Y_data, epochs=10, verbose=0, callbacks=[CustomCallback()])
 
-X_data = X_data.reshape(21312, 7, 6, 240, 1)
-
-print("Input Shape Revised:\n", X_data.shape)
-
-print("Attempting to view convolutionary filter sizes")
-for layer in model.layers:
-	if 'Conv' not in layer.name:
-		continue
-	print(layer.name, layer.get_weights()[0].shape)
-
-
-model.fit(X_data, Y_data, epochs=10)
-
-_, acc = model.evaluate(X_data, Y_data)
+_, acc = model.evaluate(X_data, Y_data, verbose=0, callbacks=[CustomCallback()])
 
 print("Accuracy: %.2f" % (acc*100))
 
