@@ -9,13 +9,17 @@ from glob import glob
 
 FILE_PATTERN = "A0[1-9]"
 
-DEFAULT_DIR = "../datasets/BCICIV_2a_gdf/"
+DEFAULT_DIR = "../../datasets/BCICIV_2a_gdf/"
 
-PROCESSED_DIR = "../datasets/BCICIV_2a_processed/"
+PROCESSED_DIR = "../../datasets/BCICIV_2a_processed/"
 
-PROCESSED_2D_DIR = "../datasets/BCICIV_2a_2d_processed/"
+PROCESSED_2D_DIR = "../../datasets/BCICIV_2a_2d_processed/"
 
-CROPPED_DIR = "../datasets/BCICIV_2a_cropped/"
+CROPPED_DIR = "../../datasets/BCICIV_2a_cropped/"
+
+AVERAGED_DIR = "../../datasets/BCICIV_2a_averaged/"
+
+SHUFFLED_DIR = "../../datasets/BCICIV_2a_shuffled/"
 
 EVAL_KEYS_SUB_DIR = "true_labels/"
 
@@ -385,7 +389,7 @@ class DataProcessing:
 				self.cropped_eval_data = {}
 				print("Cropped Evaluation Data not found, please check file system")
 
-	def averageCroppedData(self):
+	def averageData(self):
 		try: 
 			if ("T" in self.file_type):
 				self.cropped_training_data
@@ -395,27 +399,157 @@ class DataProcessing:
 			print("Data not yet cropped, please call cropData() or loadCroppedData() before this.")
 			return
 		if ("T" in self.file_type):
+			self.averaged_training_data = {}
 			for key in self.cropped_training_data:
+				self.averaged_training_data[key] = self.cropped_training_data[key]
 				for sample in range(len(self.cropped_training_data[key][0])):
 					a = np.zeros((7, 6))
 					for i in range(7):
 						for j in range(6):
 							a[i, j] = np.average(self.cropped_training_data[key][0][sample][i, j])
 					a = np.repeat(a[:, :, np.newaxis], 240, axis=2)
-					self.cropped_training_data[key][0][sample] = self.cropped_training_data[key][0][sample] - a	
+					self.averaged_training_data[key][0][sample] = self.cropped_training_data[key][0][sample] - a	
 		if ("E" in self.file_type):
+			self.averaged_eval_data = {}
 			for key in self.cropped_eval_data:
+				self.averaged_eval_data[key] = self.cropped_eval_data[key]
 				for sample in range(len(self.cropped_eval_data[key][0])):
 					a = np.zeros((7, 6))
 					for i in range(7):
 						for j in range(6):
 							a[i, j] = np.average(self.cropped_eval_data[key][0][sample][i, j])
 					a = np.repeat(a[:, :, np.newaxis], 240, axis=2)
-					self.cropped_eval_data[key][0][sample] = self.cropped_eval_data[key][0][sample] - a	
+					self.averaged_eval_data[key][0][sample] = self.cropped_eval_data[key][0][sample] - a	
 
 
-#	def saveAveragedCroppedData():
+	def saveAveragedData(self):
+		try: 
+			if ("T" in self.file_type):
+				self.averaged_training_data
+			if ("E" in self.file_type):
+				self.averaged_eval_data
+		except NameError:
+			print("Data not yet averaged, please call averageData() or loadAveragedData() before this.")
+			return
+		if ("T" in self.file_type):
+			for key in self.averaged_training_data:
+				fileBase = AVERAGED_DIR + "A0" + str(key) + "T"
+				np.save(fileBase + "D_averaged.npy", self.averaged_training_data[key][0])
+				np.save(fileBase + "K_averaged.npy", self.averaged_training_data[key][1])
+		if ("E" in self.file_type):
+			for key in self.averaged_eval_data:
+				fileBase = AVERAGED_DIR + "A0" + str(key) + "E"
+				np.save(fileBase + "D_averaged.npy", self.averaged_eval_data[key][0])
+				np.save(fileBase + "K_averaged.npy", self.averaged_eval_data[key][1])
 
+	def loadAveragedData(self, file_type="B"):
+		if (file_type != "T" and file_type != "E" and file_type != "B"):
+			print("Please call loadAveragedData(file_type) with a value file_type of either 'T', 'E', or 'B'")
+			return
+		self.averaged_training_data = {}
+		self.averaged_eval_data = {}
+		if ("B" == file_type):
+			file_type = "TE";
+		self.file_type = file_type
+		if ("T" in file_type):
+			try:
+				fileBase = AVERAGED_DIR + "A0"
+				fileSuffD = "TD_averaged.npy"
+				fileSuffK = "TK_averaged.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.averaged_training_data[key] = [d, k]
+			except FileNotFoundError:
+				self.averaged_training_data = {}
+				print("Averaged Training Data not found, please check file system")
+		if ("E" in file_type):
+			try:
+				fileBase = AVERAGED_DIR + "A0"
+				fileSuffD = "ED_averaged.npy"
+				fileSuffK = "EK_averaged.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.averaged_eval_data[key] = [d, k]
+			except FileNotFoundError:
+				self.averaged_eval_data = {}
+				print("Averaged Evaluation Data not found, please check file system")
 
+	def shuffleData(self):
+		try: 
+			if ("T" in self.file_type):
+				self.averaged_training_data
+			if ("E" in self.file_type):
+				self.averaged_eval_data
+		except NameError:
+			print("Data not yet averaged, please call averageData() or loadAveragedData() before this.")
+			return
+		if ("T" in self.file_type):
+			self.shuffled_training_data = {}
+			for key in self.averaged_training_data:
+				self.shuffled_training_data[key] = self.averaged_training_data[key]
+				p = np.random.permutation(len(self.averaged_training_data[key][0]))
+				self.shuffled_training_data[key][0] = self.averaged_training_data[key][0][p]
+				self.shuffled_training_data[key][1] = self.averaged_training_data[key][1][p]
+		if ("E" in self.file_type):
+			self.shuffled_eval_data = {}
+			for key in self.averaged_eval_data:
+				self.shuffled_eval_data[key] = self.averaged_eval_data[key]
+				p = np.random.permutation(len(self.averaged_eval_data[key][0]))
+				self.shuffled_eval_data[key][0] = self.averaged_eval_data[key][0][p]
+				self.shuffled_eval_data[key][1] = self.averaged_eval_data[key][1][p]
+			
+	def saveShuffledData(self):
+		try: 
+			if ("T" in self.file_type):
+				self.shuffled_training_data
+			if ("E" in self.file_type):
+				self.shuffled_eval_data
+		except NameError:
+			print("Data not yet averaged, please call shuffleData() or loadShuffledData() before this.")
+			return
+		if ("T" in self.file_type):
+			for key in self.shuffled_training_data:
+				fileBase = SHUFFLED_DIR + "A0" + str(key) + "T"
+				np.save(fileBase + "D_shuffled.npy", self.shuffled_training_data[key][0])
+				np.save(fileBase + "K_shuffled.npy", self.shuffled_training_data[key][1])
+		if ("E" in self.file_type):
+			for key in self.shuffled_eval_data:
+				fileBase = SHUFFLED_DIR + "A0" + str(key) + "E"
+				np.save(fileBase + "D_shuffled.npy", self.shuffled_eval_data[key][0])
+				np.save(fileBase + "K_shuffled.npy", self.shuffled_eval_data[key][1])
 
-#	def loadAveragedCroppedData():
+	def loadShuffledData(self):
+		if (file_type != "T" and file_type != "E" and file_type != "B"):
+			print("Please call loadShuffledData(file_type) with a value file_type of either 'T', 'E', or 'B'")
+			return
+		self.shuffled_training_data = {}
+		self.shuffled_eval_data = {}
+		if ("B" == file_type):
+			file_type = "TE";
+		self.file_type = file_type
+		if ("T" in file_type):
+			try:
+				fileBase = SHUFFLED_DIR + "A0"
+				fileSuffD = "TD_shuffled.npy"
+				fileSuffK = "TK_shuffled.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.shuffled_training_data[key] = [d, k]
+			except FileNotFoundError:
+				self.shuffled_training_data = {}
+				print("Shuffled Training Data not found, please check file system")
+		if ("E" in file_type):
+			try:
+				fileBase = SHUFFLED_DIR + "A0"
+				fileSuffD = "ED_shuffled.npy"
+				fileSuffK = "EK_shuffled.npy"
+				for key in range(1, 10):
+					d = np.load(fileBase + str(key) + fileSuffD)
+					k = np.load(fileBase + str(key) + fileSuffK)
+					self.shuffled_eval_data[key] = [d, k]
+			except FileNotFoundError:
+				self.shuffled_eval_data = {}
+				print("Shuffled Evaluation Data not found, please check file system")
