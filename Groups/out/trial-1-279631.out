@@ -1,0 +1,103 @@
+Found Tesla P100-PCIE-16GB GPU
+Loading libraries
+Running OAT Trial 1 with ID 279631
+'TF_NUM_INTEROP_THREADS' not found, adding and setting to '1'
+'TF_NUM_INTRAOP_THREADS' not found, adding and setting to '1'
+TF_NUM_INTEROP_THREADS = 1
+TF_NUM_INTRAOP_THREADS = 1
+Verifying thread usage params
+Intra Op Threads:	 0
+Inter Op Threads:	 0
+Performing K-Fold 1
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h39>
+Subject: Job 279631[1]: <job_arr[1]> in cluster <henry2> Done
+
+Job <job_arr[1]> was submitted from host <login03> by user <mjhouk> in cluster <henry2> at Thu Jun 17 03:56:50 2021
+Job was executed on host(s) <n3h39>, in queue <gpu>, as user <mjhouk> in cluster <henry2> at Thu Jun 17 03:56:53 2021
+</home/mjhouk> was used as the home directory.
+</home/mjhouk/MB3DCNN/Groups> was used as the working directory.
+Started at Thu Jun 17 03:56:53 2021
+Terminated at Thu Jun 17 03:57:03 2021
+Results reported at Thu Jun 17 03:57:03 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/csh
+
+#BSUB -J job_arr[1]
+#BSUB -x
+#BSUB -R "span[hosts=1]"
+#BSUB -W 900
+#BSUB -q gpu
+#BSUB -R "select[gtx1080 || p100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o ./out/trial-%I-%J.out
+#BSUB -e ./out/trial-%I-%J.err
+
+set run = true
+set gpu = "`nvidia-smi --query-gpu=gpu_name --format=csv,noheader`"
+echo "Found $gpu GPU"
+if ( "$gpu" =~ *"K20m"* ) then
+	set cuda_cmd = "module load cuda/10.1"
+	set env_cmd = "conda activate tf220_py377"
+else if ( "$gpu" =~ *"P100"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"GTX 1080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"RTX 2080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else 
+	set run = false
+endif
+
+if ( "$run" =~ true ) then
+
+	echo "Loading libraries"
+
+	eval $env_cmd
+	eval $cuda_cmd
+
+	setenv OMP_NUM_THREADS 2
+
+	echo "Running OAT Trial $LSB_JOBINDEX with ID $LSB_JOBID"
+	python runEmotion.py ${LSB_JOBINDEX} ${LSB_JOBID}
+
+else
+
+	echo "GPU not available, cancelling job for OAT Trial $LSB_JOBINDEX"	
+
+endif
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   5.04 sec.
+    Max Memory :                                 81.14 MB
+    Average Memory :                             81.14 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                6
+    Run time :                                   10 sec.
+    Turnaround time :                            13 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./out/trial-1-279631.err> for stderr output of this job.
+

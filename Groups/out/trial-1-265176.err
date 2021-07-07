@@ -1,0 +1,52 @@
+2021-06-15 02:16:22.308721: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-06-15 02:16:22.520154: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:9d:00.0 name: Tesla K20m computeCapability: 3.5
+coreClock: 0.7055GHz coreCount: 13 deviceMemorySize: 4.63GiB deviceMemoryBandwidth: 193.71GiB/s
+2021-06-15 02:16:22.523729: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-06-15 02:16:22.559323: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-06-15 02:16:22.582319: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-06-15 02:16:22.593670: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-06-15 02:16:22.629856: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-06-15 02:16:22.641494: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-06-15 02:16:22.714582: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-15 02:16:22.716641: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-06-15 02:16:27.277714: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2021-06-15 02:16:27.290360: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2600115000 Hz
+2021-06-15 02:16:27.291513: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55e75fd323f0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-06-15 02:16:27.291550: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-06-15 02:16:27.292365: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:9d:00.0 name: Tesla K20m computeCapability: 3.5
+coreClock: 0.7055GHz coreCount: 13 deviceMemorySize: 4.63GiB deviceMemoryBandwidth: 193.71GiB/s
+2021-06-15 02:16:27.292421: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-06-15 02:16:27.292464: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-06-15 02:16:27.292516: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-06-15 02:16:27.292571: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-06-15 02:16:27.292608: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-06-15 02:16:27.292649: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-06-15 02:16:27.292693: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-06-15 02:16:27.293933: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2021-06-15 02:16:27.295582: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-06-15 02:16:27.324900: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-06-15 02:16:27.324922: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
+2021-06-15 02:16:27.324935: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2021-06-15 02:16:27.326531: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4350 MB memory) -> physical GPU (device: 0, name: Tesla K20m, pci bus id: 0000:9d:00.0, compute capability: 3.5)
+2021-06-15 02:16:27.331610: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55e7601296a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-06-15 02:16:27.331630: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla K20m, Compute Capability 3.5
+Traceback (most recent call last):
+  File "runSplit.py", line 116, in <module>
+    model = EEGNet3D(N)
+  File "/home/mjhouk/MB3DCNN/Groups/MB3DEEGNet.py", line 26, in EEGNet3D
+    SRF_branch = EEGNet3D_Branch(nb_classes, XDim, YDim, Samples, dropoutRate, kernLength, F1, D, F2, norm_rate, dropoutType, block1)
+  File "/home/mjhouk/MB3DCNN/Groups/MB3DEEGNet.py", line 37, in EEGNet3D_Branch
+    block1 = Conv3D(D*F1, (XDim, YDim, 1), groups = F1, kernel_constraint = max_norm(1.), use_bias = False)(block)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf220_py377/lib/python3.7/site-packages/tensorflow/python/keras/layers/convolutional.py", line 743, in __init__
+    **kwargs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf220_py377/lib/python3.7/site-packages/tensorflow/python/keras/layers/convolutional.py", line 125, in __init__
+    **kwargs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf220_py377/lib/python3.7/site-packages/tensorflow/python/training/tracking/base.py", line 456, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf220_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 294, in __init__
+    generic_utils.validate_kwargs(kwargs, allowed_kwargs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf220_py377/lib/python3.7/site-packages/tensorflow/python/keras/utils/generic_utils.py", line 792, in validate_kwargs
+    raise TypeError(error_message, kwarg)
+TypeError: ('Keyword argument not understood:', 'groups')

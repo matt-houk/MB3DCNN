@@ -1,0 +1,5 @@
+2021-07-07 00:10:59.712281: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+Traceback (most recent call last):
+  File "runMotor.py", line 11, in <module>
+    fault_dump = open("fault_dump.txt")
+FileNotFoundError: [Errno 2] No such file or directory: 'fault_dump.txt'

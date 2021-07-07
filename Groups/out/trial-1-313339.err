@@ -1,0 +1,3 @@
+nvidia-smi: Command not found.
+2021-06-24 16:39:34.133945: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+Abort (core dumped)

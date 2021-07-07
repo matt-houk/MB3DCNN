@@ -1,0 +1,25 @@
+2021-06-18 01:16:09.636771: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+Traceback (most recent call last):
+  File "runEmotion.py", line 1, in <module>
+    from MB3DEEGNet import EEGNet3D
+  File "/home/mjhouk/MB3DCNN/Groups/MB3DEEGNet.py", line 1, in <module>
+    from tensorflow.keras.models import Model
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/__init__.py", line 55, in <module>
+    from ._api.v2 import compat
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/_api/v2/compat/__init__.py", line 39, in <module>
+    from . import v1
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/_api/v2/compat/v1/__init__.py", line 34, in <module>
+    from . import compat
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/_api/v2/compat/v1/compat/__init__.py", line 39, in <module>
+    from . import v1
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/_api/v2/compat/v1/compat/v1/__init__.py", line 684, in <module>
+    from tensorflow.python.keras.api._v1 import keras
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/api/_v1/__init__.py", line 10, in <module>
+    from . import keras
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/api/_v1/keras/__init__.py", line 24, in <module>
+    from . import losses
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/api/_v1/keras/losses/__init__.py", line 66, in <module>
+    has_lite=False)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/util/module_wrapper.py", line 111, in __init__
+    attr for attr in dir(self._tfmw_wrapped_module)
+KeyboardInterrupt

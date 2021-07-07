@@ -1,0 +1,59 @@
+2021-07-07 00:16:15.695927: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-07-07 00:16:19.934902: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-07-07 00:16:19.935139: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-07-07 00:16:19.936392: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-07-07 00:16:20.254373: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-07-07 00:16:20.257041: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcupti.so.10.1
+2021-07-07 00:16:20.259345: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-07-07 00:16:20.259545: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1487] CUPTI activity buffer flushed
+2021-07-07 00:16:20.259935: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-07-07 00:16:20.262438: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-07-07 00:16:20.262489: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-07-07 00:16:20.268978: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-07-07 00:16:20.269044: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-07-07 00:16:20.273470: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-07-07 00:16:20.274475: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-07-07 00:16:20.279258: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-07-07 00:16:20.281911: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-07-07 00:16:20.290900: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-07-07 00:16:20.295294: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-07-07 00:16:48.461899: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-07-07 00:16:48.468435: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-07-07 00:16:48.468520: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-07-07 00:16:48.468662: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-07-07 00:16:48.468713: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-07-07 00:16:48.468759: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-07-07 00:16:48.468802: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-07-07 00:16:48.468836: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-07-07 00:16:48.468889: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-07-07 00:16:48.468940: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-07-07 00:16:48.473085: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-07-07 00:16:48.473165: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-07-07 00:16:49.185713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-07-07 00:16:49.185761: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-07-07 00:16:49.185774: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-07-07 00:16:49.191860: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14846 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0)
+2021-07-07 00:16:49.192207: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-07-07 00:16:49.953630: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-07-07 00:16:49.954270: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2200080000 Hz
+2021-07-07 00:16:52.458211: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-07-07 00:16:52.702072: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-07-07 00:16:54.360595: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-07-07 00:16:54.360637: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+Fatal Python error: Segmentation fault
+
+Thread 0x00002ab3cfe3aec0 (most recent call first):
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/execute.py", line 60 in quick_execute
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 560 in call
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 1919 in _call_flat
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 2943 in __call__
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 855 in _call
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 828 in __call__
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 1100 in fit
+  File "runMotor.py", line 149 in <module>
+Segmentation fault (core dumped)

@@ -1,0 +1,4 @@
+  File "runEmotion.py", line 134
+    x_train, x_trained_test, y_train y_trained_test = train_test_split(X_data[train], Y_data[train], test_size=0.9)
+                                                  ^
+SyntaxError: invalid syntax

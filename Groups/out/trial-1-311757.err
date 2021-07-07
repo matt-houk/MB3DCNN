@@ -1,0 +1,39 @@
+nvidia-smi: Command not found.
+2021-06-24 00:26:46.390258: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-06-24 00:26:58.167662: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-06-24 00:26:58.172096: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/apps/cuda/cuda-11.0/lib64/stubs:/usr/local/apps/cuda/cuda-11.0/lib64:/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+2021-06-24 00:26:58.172129: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-06-24 00:26:58.172181: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (n2e4-8): /proc/driver/nvidia/version does not exist
+Traceback (most recent call last):
+  File "runEmotion.py", line 116, in <module>
+    model = EEGNet3D(N, Samples = 240)
+  File "/home/mjhouk/MB3DCNN/Groups/MB3DEEGNet.py", line 23, in EEGNet3D
+    SRF_branch = EEGNet3D_Branch(nb_classes, XDim, YDim, Samples, dropoutRate, kernLength/2, F1, D, F2, norm_rate, dropoutType, input1)
+  File "/home/mjhouk/MB3DCNN/Groups/MB3DEEGNet.py", line 34, in EEGNet3D_Branch
+    block1 = Conv3D(F1, (1, 1, kernLength), padding = 'same', input_shape = (XDim, YDim, Samples, 1), use_bias = False)(block)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 952, in __call__
+    input_list)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 1091, in _functional_construction_call
+    inputs, input_masks, args, kwargs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 822, in _keras_tensor_symbolic_call
+    return self._infer_output_signature(inputs, args, kwargs, input_masks)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 862, in _infer_output_signature
+    self._maybe_build(inputs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 2710, in _maybe_build
+    self.build(input_shapes)  # pylint:disable=not-callable
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/layers/convolutional.py", line 205, in build
+    dtype=self.dtype)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer.py", line 639, in add_weight
+    caching_device=caching_device)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/training/tracking/base.py", line 810, in _add_variable_with_custom_getter
+    **kwargs_for_getter)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/base_layer_utils.py", line 129, in make_variable
+    variable_shape = tensor_shape.TensorShape(shape)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/framework/tensor_shape.py", line 758, in __init__
+    self._dims = [Dimension(d) for d in dims]
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/framework/tensor_shape.py", line 758, in <listcomp>
+    self._dims = [Dimension(d) for d in dims]
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/framework/tensor_shape.py", line 206, in __init__
+    .format(value, type(value))), None)
+  File "<string>", line 3, in raise_from
+TypeError: Dimension value must be integer or None or have an __index__ method, got value '32.0' with type '<class 'float'>'

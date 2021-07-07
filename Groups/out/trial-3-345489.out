@@ -1,0 +1,859 @@
+Found Tesla P100-PCIE-16GB GPU
+Loading libraries
+Running OAT Trial 3 with ID 345489
+Verifying thread usage params
+Intra Op Threads:	 0
+Inter Op Threads:	 0
+Performing K-Fold 1
+Finished epoch 1 with Loss: 1.38486647605896 and Accuracy: 0.2814893126487732
+Finished epoch 2 with Loss: 1.372746467590332 and Accuracy: 0.2989245653152466
+Finished epoch 3 with Loss: 1.3673261404037476 and Accuracy: 0.3092716336250305
+Finished epoch 4 with Loss: 1.3636651039123535 and Accuracy: 0.31815218925476074
+Finished epoch 5 with Loss: 1.3598453998565674 and Accuracy: 0.3301287293434143
+Finished epoch 6 with Loss: 1.3527159690856934 and Accuracy: 0.3377871811389923
+Finished epoch 7 with Loss: 1.3372719287872314 and Accuracy: 0.36174026131629944
+Finished epoch 8 with Loss: 1.3215745687484741 and Accuracy: 0.3845527172088623
+Finished epoch 9 with Loss: 1.304495930671692 and Accuracy: 0.40166205167770386
+Finished epoch 10 with Loss: 1.2888339757919312 and Accuracy: 0.4153495132923126
+Finished epoch 11 with Loss: 1.2764402627944946 and Accuracy: 0.420971155166626
+Finished epoch 12 with Loss: 1.2656080722808838 and Accuracy: 0.43188855051994324
+Finished epoch 13 with Loss: 1.260096549987793 and Accuracy: 0.43229591846466064
+Finished epoch 14 with Loss: 1.2524311542510986 and Accuracy: 0.44272446632385254
+Finished epoch 15 with Loss: 1.2457695007324219 and Accuracy: 0.44443538784980774
+Finished epoch 16 with Loss: 1.2425787448883057 and Accuracy: 0.4468795955181122
+Finished epoch 17 with Loss: 1.2402771711349487 and Accuracy: 0.4500570297241211
+Finished epoch 18 with Loss: 1.2362730503082275 and Accuracy: 0.4570637047290802
+Finished epoch 19 with Loss: 1.2329957485198975 and Accuracy: 0.4544565677642822
+Finished epoch 20 with Loss: 1.2304966449737549 and Accuracy: 0.4547010064125061
+Finished epoch 21 with Loss: 1.2293461561203003 and Accuracy: 0.45315301418304443
+Finished epoch 22 with Loss: 1.2279614210128784 and Accuracy: 0.45673781633377075
+Finished epoch 23 with Loss: 1.2240808010101318 and Accuracy: 0.45804139971733093
+Finished epoch 24 with Loss: 1.2251056432724 and Accuracy: 0.4596708416938782
+Finished epoch 25 with Loss: 1.2237704992294312 and Accuracy: 0.45926347374916077
+Finished epoch 26 with Loss: 1.221501350402832 and Accuracy: 0.45779696106910706
+Finished epoch 27 with Loss: 1.2195496559143066 and Accuracy: 0.46040409803390503
+Finished epoch 28 with Loss: 1.2182419300079346 and Accuracy: 0.4628483057022095
+Finished epoch 29 with Loss: 1.215123176574707 and Accuracy: 0.4627668261528015
+Finished epoch 30 with Loss: 1.2145289182662964 and Accuracy: 0.465129554271698
+Finished epoch 31 with Loss: 1.2135615348815918 and Accuracy: 0.4660257399082184
+Finished epoch 32 with Loss: 1.2103724479675293 and Accuracy: 0.4648851156234741
+Finished epoch 33 with Loss: 1.2090760469436646 and Accuracy: 0.4659442603588104
+Finished epoch 34 with Loss: 1.207793951034546 and Accuracy: 0.46675899624824524
+Finished epoch 35 with Loss: 1.2080737352371216 and Accuracy: 0.47205474972724915
+Finished epoch 36 with Loss: 1.207779884338379 and Accuracy: 0.4645592272281647
+Finished epoch 37 with Loss: 1.2080051898956299 and Accuracy: 0.4674922525882721
+Finished epoch 38 with Loss: 1.204323649406433 and Accuracy: 0.46675899624824524
+Finished epoch 39 with Loss: 1.206769347190857 and Accuracy: 0.4674922525882721
+Finished epoch 40 with Loss: 1.2021085023880005 and Accuracy: 0.4666775166988373
+Finished epoch 41 with Loss: 1.2027887105941772 and Accuracy: 0.46952909231185913
+Finished epoch 42 with Loss: 1.2002596855163574 and Accuracy: 0.4710770845413208
+Finished epoch 43 with Loss: 1.1989516019821167 and Accuracy: 0.4734397828578949
+Finished epoch 44 with Loss: 1.1990463733673096 and Accuracy: 0.4713214933872223
+Finished epoch 45 with Loss: 1.193952202796936 and Accuracy: 0.4755581021308899
+Finished epoch 46 with Loss: 1.193869948387146 and Accuracy: 0.47604691982269287
+Finished epoch 47 with Loss: 1.1966816186904907 and Accuracy: 0.47629135847091675
+Finished epoch 48 with Loss: 1.1933460235595703 and Accuracy: 0.4746618866920471
+Finished epoch 49 with Loss: 1.1931887865066528 and Accuracy: 0.47669872641563416
+Finished epoch 50 with Loss: 1.1910184621810913 and Accuracy: 0.47498777508735657
+Finished epoch 51 with Loss: 1.1909140348434448 and Accuracy: 0.47669872641563416
+Finished epoch 52 with Loss: 1.189560890197754 and Accuracy: 0.4766172468662262
+Finished epoch 53 with Loss: 1.1882097721099854 and Accuracy: 0.48158708214759827
+Finished epoch 54 with Loss: 1.1861281394958496 and Accuracy: 0.47987616062164307
+Finished epoch 55 with Loss: 1.18812894821167 and Accuracy: 0.4785726070404053
+Finished epoch 56 with Loss: 1.1844525337219238 and Accuracy: 0.4821574091911316
+Finished epoch 57 with Loss: 1.185236930847168 and Accuracy: 0.4868013560771942
+Finished epoch 58 with Loss: 1.184322476387024 and Accuracy: 0.4838683307170868
+Finished epoch 59 with Loss: 1.1835404634475708 and Accuracy: 0.483053594827652
+Finished epoch 60 with Loss: 1.1808477640151978 and Accuracy: 0.48419421911239624
+Finished epoch 61 with Loss: 1.1813888549804688 and Accuracy: 0.4859866499900818
+Finished epoch 62 with Loss: 1.1818788051605225 and Accuracy: 0.47922438383102417
+Finished epoch 63 with Loss: 1.1816407442092896 and Accuracy: 0.4854978024959564
+Finished epoch 64 with Loss: 1.1779029369354248 and Accuracy: 0.4836239218711853
+Finished epoch 65 with Loss: 1.1766595840454102 and Accuracy: 0.48883819580078125
+Finished epoch 66 with Loss: 1.1769684553146362 and Accuracy: 0.4836239218711853
+Finished epoch 67 with Loss: 1.1736139059066772 and Accuracy: 0.4895714521408081
+Finished epoch 68 with Loss: 1.1791714429855347 and Accuracy: 0.487697571516037
+Finished epoch 69 with Loss: 1.176046371459961 and Accuracy: 0.48712727427482605
+Finished epoch 70 with Loss: 1.175120234489441 and Accuracy: 0.4879419803619385
+Finished epoch 71 with Loss: 1.172819972038269 and Accuracy: 0.48859378695487976
+Finished epoch 72 with Loss: 1.1739028692245483 and Accuracy: 0.4911194443702698
+Finished epoch 73 with Loss: 1.1725469827651978 and Accuracy: 0.4963337182998657
+Finished epoch 74 with Loss: 1.1709200143814087 and Accuracy: 0.49006029963493347
+Finished epoch 75 with Loss: 1.1670029163360596 and Accuracy: 0.49437835812568665
+Finished epoch 76 with Loss: 1.169222116470337 and Accuracy: 0.4912823736667633
+Finished epoch 77 with Loss: 1.171301007270813 and Accuracy: 0.4938895106315613
+Finished epoch 78 with Loss: 1.168428897857666 and Accuracy: 0.48777905106544495
+Finished epoch 79 with Loss: 1.1672008037567139 and Accuracy: 0.4942968785762787
+Finished epoch 80 with Loss: 1.1686694622039795 and Accuracy: 0.4893270432949066
+Finished epoch 81 with Loss: 1.1673197746276855 and Accuracy: 0.49413394927978516
+Finished epoch 82 with Loss: 1.1662640571594238 and Accuracy: 0.49649664759635925
+Finished epoch 83 with Loss: 1.1667109727859497 and Accuracy: 0.49348214268684387
+Finished epoch 84 with Loss: 1.1640468835830688 and Accuracy: 0.4915268123149872
+Finished epoch 85 with Loss: 1.1631649732589722 and Accuracy: 0.49291184544563293
+Finished epoch 86 with Loss: 1.1653717756271362 and Accuracy: 0.4978817105293274
+Finished epoch 87 with Loss: 1.1624219417572021 and Accuracy: 0.4938895106315613
+Finished epoch 88 with Loss: 1.1612194776535034 and Accuracy: 0.49837052822113037
+Finished epoch 89 with Loss: 1.1604037284851074 and Accuracy: 0.4942154288291931
+Finished epoch 90 with Loss: 1.1593154668807983 and Accuracy: 0.4960078299045563
+Finished epoch 91 with Loss: 1.161637544631958 and Accuracy: 0.5010591745376587
+Finished epoch 92 with Loss: 1.1639060974121094 and Accuracy: 0.49861496686935425
+Finished epoch 93 with Loss: 1.160630464553833 and Accuracy: 0.4977187514305115
+Finished epoch 94 with Loss: 1.1591145992279053 and Accuracy: 0.4980446398258209
+Finished epoch 95 with Loss: 1.1564182043075562 and Accuracy: 0.5003259181976318
+Finished epoch 96 with Loss: 1.156952142715454 and Accuracy: 0.49714845418930054
+Finished epoch 97 with Loss: 1.1525015830993652 and Accuracy: 0.5020368099212646
+Finished epoch 98 with Loss: 1.1533030271530151 and Accuracy: 0.5017924308776855
+Finished epoch 99 with Loss: 1.1587666273117065 and Accuracy: 0.495356023311615
+Finished epoch 100 with Loss: 1.1581898927688599 and Accuracy: 0.5021182894706726
+Finished epoch 101 with Loss: 1.1542448997497559 and Accuracy: 0.5074955224990845
+Finished epoch 102 with Loss: 1.1518601179122925 and Accuracy: 0.5040736794471741
+Finished epoch 103 with Loss: 1.1504592895507812 and Accuracy: 0.5069252252578735
+Finished epoch 104 with Loss: 1.1515897512435913 and Accuracy: 0.5037477612495422
+Finished epoch 105 with Loss: 1.1529343128204346 and Accuracy: 0.4986964166164398
+Finished epoch 106 with Loss: 1.1528571844100952 and Accuracy: 0.5053772330284119
+Finished epoch 107 with Loss: 1.152665615081787 and Accuracy: 0.5036662817001343
+Finished epoch 108 with Loss: 1.1511167287826538 and Accuracy: 0.5035848021507263
+Finished epoch 109 with Loss: 1.1447404623031616 and Accuracy: 0.5101026296615601
+Finished epoch 110 with Loss: 1.1503874063491821 and Accuracy: 0.5072510838508606
+Finished epoch 111 with Loss: 1.1488852500915527 and Accuracy: 0.5033404231071472
+Finished epoch 112 with Loss: 1.1457957029342651 and Accuracy: 0.5121394991874695
+Finished epoch 113 with Loss: 1.145654559135437 and Accuracy: 0.5054587125778198
+Finished epoch 114 with Loss: 1.1436172723770142 and Accuracy: 0.5080658197402954
+Finished epoch 115 with Loss: 1.144226312637329 and Accuracy: 0.5083102583885193
+Finished epoch 116 with Loss: 1.1475799083709717 and Accuracy: 0.5006517767906189
+Finished epoch 117 with Loss: 1.1490517854690552 and Accuracy: 0.505132794380188
+Finished epoch 118 with Loss: 1.1470892429351807 and Accuracy: 0.5043180584907532
+Finished epoch 119 with Loss: 1.1471797227859497 and Accuracy: 0.5101026296615601
+Finished epoch 120 with Loss: 1.1439173221588135 and Accuracy: 0.5076584815979004
+Finished epoch 121 with Loss: 1.1490378379821777 and Accuracy: 0.5035848021507263
+Finished epoch 122 with Loss: 1.1461169719696045 and Accuracy: 0.5067622661590576
+Finished epoch 123 with Loss: 1.1440576314926147 and Accuracy: 0.5088805556297302
+Finished epoch 124 with Loss: 1.145676612854004 and Accuracy: 0.5099397301673889
+Finished epoch 125 with Loss: 1.1411887407302856 and Accuracy: 0.5077399611473083
+Finished epoch 126 with Loss: 1.1449015140533447 and Accuracy: 0.5118950605392456
+Finished epoch 127 with Loss: 1.1449992656707764 and Accuracy: 0.5089620351791382
+Finished epoch 128 with Loss: 1.1420117616653442 and Accuracy: 0.5087990760803223
+Finished epoch 129 with Loss: 1.1408040523529053 and Accuracy: 0.5142577886581421
+Finished epoch 130 with Loss: 1.1414681673049927 and Accuracy: 0.5101026296615601
+Finished epoch 131 with Loss: 1.1381099224090576 and Accuracy: 0.5070881247520447
+Finished epoch 132 with Loss: 1.141079068183899 and Accuracy: 0.5083917379379272
+Finished epoch 133 with Loss: 1.1412571668624878 and Accuracy: 0.5070067048072815
+Finished epoch 134 with Loss: 1.1415497064590454 and Accuracy: 0.509858250617981
+Finished epoch 135 with Loss: 1.1381274461746216 and Accuracy: 0.5085546970367432
+Finished epoch 136 with Loss: 1.1416325569152832 and Accuracy: 0.5080658197402954
+Finished epoch 137 with Loss: 1.1373116970062256 and Accuracy: 0.5130357146263123
+Finished epoch 138 with Loss: 1.13577401638031 and Accuracy: 0.5135245323181152
+Finished epoch 139 with Loss: 1.1394518613815308 and Accuracy: 0.5133615732192993
+Finished epoch 140 with Loss: 1.139063835144043 and Accuracy: 0.5125468373298645
+Finished epoch 141 with Loss: 1.1341723203659058 and Accuracy: 0.5105100274085999
+Finished epoch 142 with Loss: 1.1392631530761719 and Accuracy: 0.5088805556297302
+Finished epoch 143 with Loss: 1.1361486911773682 and Accuracy: 0.5127912759780884
+Finished epoch 144 with Loss: 1.1357710361480713 and Accuracy: 0.5120580196380615
+Finished epoch 145 with Loss: 1.1357299089431763 and Accuracy: 0.5115691423416138
+Finished epoch 146 with Loss: 1.138176441192627 and Accuracy: 0.5065993070602417
+Finished epoch 147 with Loss: 1.13407564163208 and Accuracy: 0.5118950605392456
+Finished epoch 148 with Loss: 1.1363648176193237 and Accuracy: 0.5131171345710754
+Finished epoch 149 with Loss: 1.1330599784851074 and Accuracy: 0.5145836472511292
+Finished epoch 150 with Loss: 1.1319787502288818 and Accuracy: 0.515398383140564
+Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36Accuracy: 0.36
+Performing K-Fold 2
+Finished epoch 1 with Loss: 1.3761264085769653 and Accuracy: 0.2933029234409332
+Finished epoch 2 with Loss: 1.3628026247024536 and Accuracy: 0.32328498363494873
+Finished epoch 3 with Loss: 1.341603398323059 and Accuracy: 0.3611699640750885
+Finished epoch 4 with Loss: 1.3261051177978516 and Accuracy: 0.37656834721565247
+Finished epoch 5 with Loss: 1.316967487335205 and Accuracy: 0.388626366853714
+Finished epoch 6 with Loss: 1.307448148727417 and Accuracy: 0.40190646052360535
+Finished epoch 7 with Loss: 1.2932970523834229 and Accuracy: 0.4104611277580261
+Finished epoch 8 with Loss: 1.285302758216858 and Accuracy: 0.4198305308818817
+Finished epoch 9 with Loss: 1.275563359260559 and Accuracy: 0.420889675617218
+Finished epoch 10 with Loss: 1.2690542936325073 and Accuracy: 0.42911845445632935
+Finished epoch 11 with Loss: 1.2640775442123413 and Accuracy: 0.43311065435409546
+Finished epoch 12 with Loss: 1.2587428092956543 and Accuracy: 0.43905818462371826
+Finished epoch 13 with Loss: 1.2538585662841797 and Accuracy: 0.4376731216907501
+Finished epoch 14 with Loss: 1.249008297920227 and Accuracy: 0.4423985779285431
+Finished epoch 15 with Loss: 1.246232032775879 and Accuracy: 0.4451686441898346
+Finished epoch 16 with Loss: 1.2420156002044678 and Accuracy: 0.44590190052986145
+Finished epoch 17 with Loss: 1.2408488988876343 and Accuracy: 0.4495681822299957
+Finished epoch 18 with Loss: 1.2393641471862793 and Accuracy: 0.45184943079948425
+Finished epoch 19 with Loss: 1.2325612306594849 and Accuracy: 0.4532344937324524
+Finished epoch 20 with Loss: 1.2313176393508911 and Accuracy: 0.4577154815196991
+Finished epoch 21 with Loss: 1.2280158996582031 and Accuracy: 0.455352783203125
+Finished epoch 22 with Loss: 1.2253011465072632 and Accuracy: 0.4591820240020752
+Finished epoch 23 with Loss: 1.224410891532898 and Accuracy: 0.46081146597862244
+Finished epoch 24 with Loss: 1.2244242429733276 and Accuracy: 0.4568192958831787
+Finished epoch 25 with Loss: 1.2208235263824463 and Accuracy: 0.4632556736469269
+Finished epoch 26 with Loss: 1.2206406593322754 and Accuracy: 0.45779696106910706
+Finished epoch 27 with Loss: 1.2189627885818481 and Accuracy: 0.4647221863269806
+Finished epoch 28 with Loss: 1.2156263589859009 and Accuracy: 0.46203356981277466
+Finished epoch 29 with Loss: 1.214490294456482 and Accuracy: 0.46545544266700745
+Finished epoch 30 with Loss: 1.2138149738311768 and Accuracy: 0.465129554271698
+Finished epoch 31 with Loss: 1.2146072387695312 and Accuracy: 0.46545544266700745
+Finished epoch 32 with Loss: 1.2093243598937988 and Accuracy: 0.4653739631175995
+Finished epoch 33 with Loss: 1.213161826133728 and Accuracy: 0.46651458740234375
+Finished epoch 34 with Loss: 1.2085870504379272 and Accuracy: 0.4678996205329895
+Finished epoch 35 with Loss: 1.2060061693191528 and Accuracy: 0.4689587652683258
+Finished epoch 36 with Loss: 1.2051827907562256 and Accuracy: 0.4684699475765228
+Finished epoch 37 with Loss: 1.2031909227371216 and Accuracy: 0.47311389446258545
+Finished epoch 38 with Loss: 1.2012708187103271 and Accuracy: 0.4734397828578949
+Finished epoch 39 with Loss: 1.2021130323410034 and Accuracy: 0.47563955187797546
+Finished epoch 40 with Loss: 1.2002167701721191 and Accuracy: 0.4715659022331238
+Finished epoch 41 with Loss: 1.200330138206482 and Accuracy: 0.4733583331108093
+Finished epoch 42 with Loss: 1.198124885559082 and Accuracy: 0.4738471508026123
+Finished epoch 43 with Loss: 1.1987892389297485 and Accuracy: 0.4789799451828003
+Finished epoch 44 with Loss: 1.1967484951019287 and Accuracy: 0.47816523909568787
+Finished epoch 45 with Loss: 1.1976927518844604 and Accuracy: 0.47311389446258545
+Finished epoch 46 with Loss: 1.1935105323791504 and Accuracy: 0.477920800447464
+Finished epoch 47 with Loss: 1.194678544998169 and Accuracy: 0.4726250469684601
+Finished epoch 48 with Loss: 1.191640019416809 and Accuracy: 0.4784911274909973
+Finished epoch 49 with Loss: 1.1937130689620972 and Accuracy: 0.48093530535697937
+Finished epoch 50 with Loss: 1.1900883913040161 and Accuracy: 0.48183152079582214
+Finished epoch 51 with Loss: 1.1868072748184204 and Accuracy: 0.47906142473220825
+Finished epoch 52 with Loss: 1.1886144876480103 and Accuracy: 0.4787355363368988
+Finished epoch 53 with Loss: 1.1851497888565063 and Accuracy: 0.4813426733016968
+Finished epoch 54 with Loss: 1.1874679327011108 and Accuracy: 0.4824018180370331
+Finished epoch 55 with Loss: 1.1858161687850952 and Accuracy: 0.48411276936531067
+Finished epoch 56 with Loss: 1.1876006126403809 and Accuracy: 0.4795502722263336
+Finished epoch 57 with Loss: 1.1834933757781982 and Accuracy: 0.48313507437705994
+Finished epoch 58 with Loss: 1.1834501028060913 and Accuracy: 0.48207592964172363
+Finished epoch 59 with Loss: 1.1808310747146606 and Accuracy: 0.4857422113418579
+Finished epoch 60 with Loss: 1.1815143823623657 and Accuracy: 0.4854978024959564
+Finished epoch 61 with Loss: 1.1812888383865356 and Accuracy: 0.4806908965110779
+Finished epoch 62 with Loss: 1.1821492910385132 and Accuracy: 0.48737168312072754
+Finished epoch 63 with Loss: 1.177003264427185 and Accuracy: 0.48460158705711365
+Finished epoch 64 with Loss: 1.1783268451690674 and Accuracy: 0.48631253838539124
+Finished epoch 65 with Loss: 1.1774598360061646 and Accuracy: 0.48737168312072754
+Finished epoch 66 with Loss: 1.1794167757034302 and Accuracy: 0.4870457947254181
+Finished epoch 67 with Loss: 1.17759108543396 and Accuracy: 0.4879419803619385
+Finished epoch 68 with Loss: 1.1758575439453125 and Accuracy: 0.48753461241722107
+Finished epoch 69 with Loss: 1.1748853921890259 and Accuracy: 0.48696431517601013
+Finished epoch 70 with Loss: 1.1753581762313843 and Accuracy: 0.485171914100647
+Finished epoch 71 with Loss: 1.1761736869812012 and Accuracy: 0.48541632294654846
+Finished epoch 72 with Loss: 1.1765459775924683 and Accuracy: 0.4846830666065216
+Finished epoch 73 with Loss: 1.1755595207214355 and Accuracy: 0.49006029963493347
+Finished epoch 74 with Loss: 1.1733689308166504 and Accuracy: 0.4894084930419922
+Finished epoch 75 with Loss: 1.1723700761795044 and Accuracy: 0.48777905106544495
+Finished epoch 76 with Loss: 1.1716699600219727 and Accuracy: 0.4895714521408081
+Finished epoch 77 with Loss: 1.1684935092926025 and Accuracy: 0.49307480454444885
+Finished epoch 78 with Loss: 1.1697744131088257 and Accuracy: 0.48843082785606384
+Finished epoch 79 with Loss: 1.1654597520828247 and Accuracy: 0.48989734053611755
+Finished epoch 80 with Loss: 1.166040301322937 and Accuracy: 0.49006029963493347
+Finished epoch 81 with Loss: 1.169994831085205 and Accuracy: 0.48761609196662903
+Finished epoch 82 with Loss: 1.1663868427276611 and Accuracy: 0.4879419803619385
+Finished epoch 83 with Loss: 1.1619977951049805 and Accuracy: 0.495356023311615
+Finished epoch 84 with Loss: 1.166747808456421 and Accuracy: 0.49397099018096924
+Finished epoch 85 with Loss: 1.1634196043014526 and Accuracy: 0.4878605306148529
+Finished epoch 86 with Loss: 1.1637146472930908 and Accuracy: 0.49780023097991943
+Finished epoch 87 with Loss: 1.1633310317993164 and Accuracy: 0.495356023311615
+Finished epoch 88 with Loss: 1.1626038551330566 and Accuracy: 0.49331921339035034
+Finished epoch 89 with Loss: 1.1614478826522827 and Accuracy: 0.4921785891056061
+Finished epoch 90 with Loss: 1.1626440286636353 and Accuracy: 0.492341548204422
+Finished epoch 91 with Loss: 1.1625094413757324 and Accuracy: 0.4964151978492737
+Finished epoch 92 with Loss: 1.158506155014038 and Accuracy: 0.4959263503551483
+Finished epoch 93 with Loss: 1.162023901939392 and Accuracy: 0.49820759892463684
+Finished epoch 94 with Loss: 1.158191442489624 and Accuracy: 0.4961707592010498
+Finished epoch 95 with Loss: 1.1618144512176514 and Accuracy: 0.49560046195983887
+Finished epoch 96 with Loss: 1.1609899997711182 and Accuracy: 0.4963337182998657
+Finished epoch 97 with Loss: 1.1589618921279907 and Accuracy: 0.49462276697158813
+Finished epoch 98 with Loss: 1.1554938554763794 and Accuracy: 0.4972299039363861
+Finished epoch 99 with Loss: 1.154431939125061 and Accuracy: 0.4959263503551483
+Finished epoch 100 with Loss: 1.1574854850769043 and Accuracy: 0.4982890784740448
+Finished epoch 101 with Loss: 1.1572895050048828 and Accuracy: 0.49837052822113037
+Finished epoch 102 with Loss: 1.1523902416229248 and Accuracy: 0.5013035535812378
+Finished epoch 103 with Loss: 1.1535290479660034 and Accuracy: 0.49991852045059204
+Finished epoch 104 with Loss: 1.1535826921463013 and Accuracy: 0.5016294717788696
+Finished epoch 105 with Loss: 1.1524831056594849 and Accuracy: 0.5005702972412109
+Finished epoch 106 with Loss: 1.1522488594055176 and Accuracy: 0.5017109513282776
+Finished epoch 107 with Loss: 1.1509699821472168 and Accuracy: 0.49820759892463684
+Finished epoch 108 with Loss: 1.1513041257858276 and Accuracy: 0.5017924308776855
+Finished epoch 109 with Loss: 1.1514134407043457 and Accuracy: 0.5026885867118835
+Finished epoch 110 with Loss: 1.1525461673736572 and Accuracy: 0.4985334873199463
+Finished epoch 111 with Loss: 1.1496679782867432 and Accuracy: 0.4956819415092468
+Finished epoch 112 with Loss: 1.1479671001434326 and Accuracy: 0.5021182894706726
+Finished epoch 113 with Loss: 1.1500099897384644 and Accuracy: 0.4991037845611572
+Finished epoch 114 with Loss: 1.1515122652053833 and Accuracy: 0.5005702972412109
+Finished epoch 115 with Loss: 1.1524362564086914 and Accuracy: 0.49755582213401794
+Finished epoch 116 with Loss: 1.1487621068954468 and Accuracy: 0.5038292407989502
+Finished epoch 117 with Loss: 1.148597002029419 and Accuracy: 0.5052957534790039
+Finished epoch 118 with Loss: 1.143160343170166 and Accuracy: 0.5010591745376587
+Finished epoch 119 with Loss: 1.1428529024124146 and Accuracy: 0.5077399611473083
+Finished epoch 120 with Loss: 1.1504836082458496 and Accuracy: 0.5027700662612915
+Finished epoch 121 with Loss: 1.1449869871139526 and Accuracy: 0.5024442076683044
+Finished epoch 122 with Loss: 1.1452223062515259 and Accuracy: 0.5064363479614258
+Finished epoch 123 with Loss: 1.1442631483078003 and Accuracy: 0.5090435147285461
+Finished epoch 124 with Loss: 1.1431983709335327 and Accuracy: 0.5030959844589233
+Finished epoch 125 with Loss: 1.141501545906067 and Accuracy: 0.5060290098190308
+Finished epoch 126 with Loss: 1.145317792892456 and Accuracy: 0.5037477612495422
+Finished epoch 127 with Loss: 1.1418707370758057 and Accuracy: 0.5068437457084656
+Finished epoch 128 with Loss: 1.141245722770691 and Accuracy: 0.5085546970367432
+Finished epoch 129 with Loss: 1.141344666481018 and Accuracy: 0.5067622661590576
+Finished epoch 130 with Loss: 1.141089677810669 and Accuracy: 0.5105100274085999
+Finished epoch 131 with Loss: 1.139341115951538 and Accuracy: 0.5061919689178467
+Finished epoch 132 with Loss: 1.1407188177108765 and Accuracy: 0.5030145049095154
+Finished epoch 133 with Loss: 1.138344407081604 and Accuracy: 0.5100212097167969
+Finished epoch 134 with Loss: 1.138779640197754 and Accuracy: 0.5054587125778198
+Finished epoch 135 with Loss: 1.1409308910369873 and Accuracy: 0.5061104893684387
+Finished epoch 136 with Loss: 1.1408501863479614 and Accuracy: 0.50505131483078
+Finished epoch 137 with Loss: 1.1384609937667847 and Accuracy: 0.5082287788391113
+Finished epoch 138 with Loss: 1.1373121738433838 and Accuracy: 0.5099397301673889
+Finished epoch 139 with Loss: 1.1382324695587158 and Accuracy: 0.5091249942779541
+Finished epoch 140 with Loss: 1.1421442031860352 and Accuracy: 0.5035033226013184
+Finished epoch 141 with Loss: 1.136229395866394 and Accuracy: 0.5061104893684387
+Finished epoch 142 with Loss: 1.1366746425628662 and Accuracy: 0.5095323324203491
+Finished epoch 143 with Loss: 1.1354076862335205 and Accuracy: 0.509858250617981
+Finished epoch 144 with Loss: 1.1357475519180298 and Accuracy: 0.5137689709663391
+Finished epoch 145 with Loss: 1.1341899633407593 and Accuracy: 0.5116506218910217
+Finished epoch 146 with Loss: 1.1344815492630005 and Accuracy: 0.5132800936698914
+Finished epoch 147 with Loss: 1.1306943893432617 and Accuracy: 0.5114062428474426
+Finished epoch 148 with Loss: 1.133337140083313 and Accuracy: 0.5054587125778198
+Finished epoch 149 with Loss: 1.1352609395980835 and Accuracy: 0.5073325634002686
+Finished epoch 150 with Loss: 1.133508324623108 and Accuracy: 0.5079028606414795
+Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40
+Performing K-Fold 3
+Finished epoch 1 with Loss: 1.3754472732543945 and Accuracy: 0.29069578647613525
+Finished epoch 2 with Loss: 1.3607683181762695 and Accuracy: 0.32752159237861633
+Finished epoch 3 with Loss: 1.343867540359497 and Accuracy: 0.35253381729125977
+Finished epoch 4 with Loss: 1.330536127090454 and Accuracy: 0.3724132180213928
+Finished epoch 5 with Loss: 1.3189367055892944 and Accuracy: 0.38463419675827026
+Finished epoch 6 with Loss: 1.307273507118225 and Accuracy: 0.3985660672187805
+Finished epoch 7 with Loss: 1.2953341007232666 and Accuracy: 0.4071207344532013
+Finished epoch 8 with Loss: 1.286211609840393 and Accuracy: 0.41445332765579224
+Finished epoch 9 with Loss: 1.277068018913269 and Accuracy: 0.4187713861465454
+Finished epoch 10 with Loss: 1.2712563276290894 and Accuracy: 0.42887404561042786
+Finished epoch 11 with Loss: 1.2639492750167847 and Accuracy: 0.43359947204589844
+Finished epoch 12 with Loss: 1.259118914604187 and Accuracy: 0.4362066090106964
+Finished epoch 13 with Loss: 1.2529048919677734 and Accuracy: 0.44011732935905457
+Finished epoch 14 with Loss: 1.2469974756240845 and Accuracy: 0.4468795955181122
+Finished epoch 15 with Loss: 1.2432445287704468 and Accuracy: 0.4478572607040405
+Finished epoch 16 with Loss: 1.2394943237304688 and Accuracy: 0.4519309103488922
+Finished epoch 17 with Loss: 1.2357203960418701 and Accuracy: 0.4565748870372772
+Finished epoch 18 with Loss: 1.2334133386611938 and Accuracy: 0.4547824561595917
+Finished epoch 19 with Loss: 1.229482889175415 and Accuracy: 0.45885610580444336
+Finished epoch 20 with Loss: 1.22743558883667 and Accuracy: 0.4636630415916443
+Finished epoch 21 with Loss: 1.2269470691680908 and Accuracy: 0.46178916096687317
+Finished epoch 22 with Loss: 1.2230379581451416 and Accuracy: 0.46187061071395874
+Finished epoch 23 with Loss: 1.2208871841430664 and Accuracy: 0.4648851156234741
+Finished epoch 24 with Loss: 1.2215934991836548 and Accuracy: 0.46781814098358154
+Finished epoch 25 with Loss: 1.2192065715789795 and Accuracy: 0.46333712339401245
+Finished epoch 26 with Loss: 1.217420220375061 and Accuracy: 0.46244093775749207
+Finished epoch 27 with Loss: 1.2176238298416138 and Accuracy: 0.46569985151290894
+Finished epoch 28 with Loss: 1.2132782936096191 and Accuracy: 0.46952909231185913
+Finished epoch 29 with Loss: 1.2153432369232178 and Accuracy: 0.4665960669517517
+Finished epoch 30 with Loss: 1.2114139795303345 and Accuracy: 0.470180869102478
+Finished epoch 31 with Loss: 1.2094725370407104 and Accuracy: 0.4706697165966034
+Finished epoch 32 with Loss: 1.2092937231063843 and Accuracy: 0.46781814098358154
+Finished epoch 33 with Loss: 1.2125378847122192 and Accuracy: 0.46521100401878357
+Finished epoch 34 with Loss: 1.2058517932891846 and Accuracy: 0.46822550892829895
+Finished epoch 35 with Loss: 1.2089179754257202 and Accuracy: 0.4709141254425049
+Finished epoch 36 with Loss: 1.2036137580871582 and Accuracy: 0.47270652651786804
+Finished epoch 37 with Loss: 1.2031618356704712 and Accuracy: 0.4738471508026123
+Finished epoch 38 with Loss: 1.2002617120742798 and Accuracy: 0.4736027419567108
+Finished epoch 39 with Loss: 1.202095627784729 and Accuracy: 0.47352126240730286
+Finished epoch 40 with Loss: 1.198624849319458 and Accuracy: 0.47458040714263916
+Finished epoch 41 with Loss: 1.1976310014724731 and Accuracy: 0.4771060645580292
+Finished epoch 42 with Loss: 1.195929765701294 and Accuracy: 0.47523218393325806
+Finished epoch 43 with Loss: 1.1984050273895264 and Accuracy: 0.47840964794158936
+Finished epoch 44 with Loss: 1.1968753337860107 and Accuracy: 0.477431982755661
+Finished epoch 45 with Loss: 1.194733738899231 and Accuracy: 0.4791429042816162
+Finished epoch 46 with Loss: 1.1922454833984375 and Accuracy: 0.477431982755661
+Finished epoch 47 with Loss: 1.1908860206604004 and Accuracy: 0.47669872641563416
+Finished epoch 48 with Loss: 1.1938649415969849 and Accuracy: 0.47612839937210083
+Finished epoch 49 with Loss: 1.194176197052002 and Accuracy: 0.47221770882606506
+Finished epoch 50 with Loss: 1.188990592956543 and Accuracy: 0.47922438383102417
+Finished epoch 51 with Loss: 1.1892579793930054 and Accuracy: 0.4837868809700012
+Finished epoch 52 with Loss: 1.1886509656906128 and Accuracy: 0.4813426733016968
+Finished epoch 53 with Loss: 1.1862428188323975 and Accuracy: 0.4789799451828003
+Finished epoch 54 with Loss: 1.1874860525131226 and Accuracy: 0.48289066553115845
+Finished epoch 55 with Loss: 1.1843364238739014 and Accuracy: 0.48329803347587585
+Finished epoch 56 with Loss: 1.1843353509902954 and Accuracy: 0.4846830666065216
+Finished epoch 57 with Loss: 1.1861852407455444 and Accuracy: 0.4862310588359833
+Finished epoch 58 with Loss: 1.1830700635910034 and Accuracy: 0.48272770643234253
+Finished epoch 59 with Loss: 1.1799747943878174 and Accuracy: 0.4903861880302429
+Finished epoch 60 with Loss: 1.182173252105713 and Accuracy: 0.4874531626701355
+Finished epoch 61 with Loss: 1.1815892457962036 and Accuracy: 0.4872902035713196
+Finished epoch 62 with Loss: 1.180601716041565 and Accuracy: 0.4840312898159027
+Finished epoch 63 with Loss: 1.1783733367919922 and Accuracy: 0.48883819580078125
+Finished epoch 64 with Loss: 1.1772407293319702 and Accuracy: 0.4881049394607544
+Finished epoch 65 with Loss: 1.1777366399765015 and Accuracy: 0.48671990633010864
+Finished epoch 66 with Loss: 1.1761013269424438 and Accuracy: 0.4881049394607544
+Finished epoch 67 with Loss: 1.1768858432769775 and Accuracy: 0.4849274754524231
+Finished epoch 68 with Loss: 1.1764781475067139 and Accuracy: 0.48818641901016235
+Finished epoch 69 with Loss: 1.1745885610580444 and Accuracy: 0.4844386577606201
+Finished epoch 70 with Loss: 1.1714847087860107 and Accuracy: 0.49160829186439514
+Finished epoch 71 with Loss: 1.1743484735488892 and Accuracy: 0.49201563000679016
+Finished epoch 72 with Loss: 1.17215895652771 and Accuracy: 0.49226006865501404
+Finished epoch 73 with Loss: 1.1722331047058105 and Accuracy: 0.4872902035713196
+Finished epoch 74 with Loss: 1.1716548204421997 and Accuracy: 0.49014174938201904
+Finished epoch 75 with Loss: 1.1708698272705078 and Accuracy: 0.4925859570503235
+Finished epoch 76 with Loss: 1.1721696853637695 and Accuracy: 0.4894084930419922
+Finished epoch 77 with Loss: 1.1661961078643799 and Accuracy: 0.49454131722450256
+Finished epoch 78 with Loss: 1.168103814125061 and Accuracy: 0.4965781271457672
+Finished epoch 79 with Loss: 1.168125033378601 and Accuracy: 0.4919341802597046
+Finished epoch 80 with Loss: 1.1638882160186768 and Accuracy: 0.5019553303718567
+Finished epoch 81 with Loss: 1.1674052476882935 and Accuracy: 0.49780023097991943
+Finished epoch 82 with Loss: 1.1650062799453735 and Accuracy: 0.4895714521408081
+Finished epoch 83 with Loss: 1.1667011976242065 and Accuracy: 0.49437835812568665
+Finished epoch 84 with Loss: 1.1651707887649536 and Accuracy: 0.4980446398258209
+Finished epoch 85 with Loss: 1.1648203134536743 and Accuracy: 0.49796316027641296
+Finished epoch 86 with Loss: 1.1655880212783813 and Accuracy: 0.4955189824104309
+Finished epoch 87 with Loss: 1.1646193265914917 and Accuracy: 0.49714845418930054
+Finished epoch 88 with Loss: 1.1612709760665894 and Accuracy: 0.49820759892463684
+Finished epoch 89 with Loss: 1.1618399620056152 and Accuracy: 0.49796316027641296
+Finished epoch 90 with Loss: 1.1579173803329468 and Accuracy: 0.49951115250587463
+Finished epoch 91 with Loss: 1.1578549146652222 and Accuracy: 0.5029330253601074
+Finished epoch 92 with Loss: 1.1612250804901123 and Accuracy: 0.49991852045059204
+Finished epoch 93 with Loss: 1.1615959405899048 and Accuracy: 0.5057845711708069
+Finished epoch 94 with Loss: 1.160762071609497 and Accuracy: 0.5
+Finished epoch 95 with Loss: 1.1602574586868286 and Accuracy: 0.5026885867118835
+Finished epoch 96 with Loss: 1.1557350158691406 and Accuracy: 0.4989408552646637
+Finished epoch 97 with Loss: 1.155448079109192 and Accuracy: 0.4997555911540985
+Finished epoch 98 with Loss: 1.1578989028930664 and Accuracy: 0.5029330253601074
+Finished epoch 99 with Loss: 1.1550592184066772 and Accuracy: 0.5018738508224487
+Finished epoch 100 with Loss: 1.1553553342819214 and Accuracy: 0.5033404231071472
+Finished epoch 101 with Loss: 1.1556122303009033 and Accuracy: 0.5023627281188965
+Finished epoch 102 with Loss: 1.1503608226776123 and Accuracy: 0.5037477612495422
+Finished epoch 103 with Loss: 1.1555492877960205 and Accuracy: 0.49967411160469055
+Finished epoch 104 with Loss: 1.1566927433013916 and Accuracy: 0.5010591745376587
+Finished epoch 105 with Loss: 1.1520837545394897 and Accuracy: 0.5055401921272278
+Finished epoch 106 with Loss: 1.1506716012954712 and Accuracy: 0.5013035535812378
+Finished epoch 107 with Loss: 1.150549292564392 and Accuracy: 0.50505131483078
+Finished epoch 108 with Loss: 1.1464534997940063 and Accuracy: 0.5074955224990845
+Finished epoch 109 with Loss: 1.1510764360427856 and Accuracy: 0.5064363479614258
+Finished epoch 110 with Loss: 1.1468496322631836 and Accuracy: 0.5059475302696228
+Finished epoch 111 with Loss: 1.148526668548584 and Accuracy: 0.5065993070602417
+Finished epoch 112 with Loss: 1.145370602607727 and Accuracy: 0.5101026296615601
+Finished epoch 113 with Loss: 1.148922085762024 and Accuracy: 0.5043180584907532
+Finished epoch 114 with Loss: 1.149700403213501 and Accuracy: 0.5091249942779541
+Finished epoch 115 with Loss: 1.1455934047698975 and Accuracy: 0.5081472992897034
+Finished epoch 116 with Loss: 1.1454426050186157 and Accuracy: 0.510184109210968
+Finished epoch 117 with Loss: 1.1478271484375 and Accuracy: 0.5068437457084656
+Finished epoch 118 with Loss: 1.1431612968444824 and Accuracy: 0.5070881247520447
+Finished epoch 119 with Loss: 1.1437638998031616 and Accuracy: 0.5075770020484924
+Finished epoch 120 with Loss: 1.1455411911010742 and Accuracy: 0.5105100274085999
+Finished epoch 121 with Loss: 1.1420661211013794 and Accuracy: 0.5164575576782227
+Finished epoch 122 with Loss: 1.142223596572876 and Accuracy: 0.5092064738273621
+Finished epoch 123 with Loss: 1.1403071880340576 and Accuracy: 0.51433926820755
+Finished epoch 124 with Loss: 1.1416975259780884 and Accuracy: 0.5084732174873352
+Finished epoch 125 with Loss: 1.1425096988677979 and Accuracy: 0.5114877223968506
+Finished epoch 126 with Loss: 1.142027735710144 and Accuracy: 0.5125468373298645
+Finished epoch 127 with Loss: 1.142494797706604 and Accuracy: 0.5070067048072815
+Finished epoch 128 with Loss: 1.1420990228652954 and Accuracy: 0.5104285478591919
+Finished epoch 129 with Loss: 1.1397098302841187 and Accuracy: 0.5096138119697571
+Finished epoch 130 with Loss: 1.1414791345596313 and Accuracy: 0.5104285478591919
+Finished epoch 131 with Loss: 1.1400818824768066 and Accuracy: 0.5133615732192993
+Finished epoch 132 with Loss: 1.1384254693984985 and Accuracy: 0.5135245323181152
+Finished epoch 133 with Loss: 1.142052173614502 and Accuracy: 0.5105100274085999
+Finished epoch 134 with Loss: 1.1345784664154053 and Accuracy: 0.5169463753700256
+Finished epoch 135 with Loss: 1.1384902000427246 and Accuracy: 0.5133615732192993
+Finished epoch 136 with Loss: 1.136075735092163 and Accuracy: 0.5126283168792725
+Finished epoch 137 with Loss: 1.1334573030471802 and Accuracy: 0.5136060118675232
+Finished epoch 138 with Loss: 1.1378976106643677 and Accuracy: 0.514909565448761
+Finished epoch 139 with Loss: 1.1347596645355225 and Accuracy: 0.5151540040969849
+Finished epoch 140 with Loss: 1.1354762315750122 and Accuracy: 0.5122209787368774
+Finished epoch 141 with Loss: 1.136413335800171 and Accuracy: 0.5133615732192993
+Finished epoch 142 with Loss: 1.1326417922973633 and Accuracy: 0.5161316394805908
+Finished epoch 143 with Loss: 1.1357128620147705 and Accuracy: 0.5160501599311829
+Finished epoch 144 with Loss: 1.1366462707519531 and Accuracy: 0.5124653577804565
+Finished epoch 145 with Loss: 1.1326980590820312 and Accuracy: 0.5131986141204834
+Finished epoch 146 with Loss: 1.1298115253448486 and Accuracy: 0.5164575576782227
+Finished epoch 147 with Loss: 1.1373627185821533 and Accuracy: 0.5111618041992188
+Finished epoch 148 with Loss: 1.1307700872421265 and Accuracy: 0.5178425908088684
+Finished epoch 149 with Loss: 1.1291857957839966 and Accuracy: 0.5218347907066345
+Finished epoch 150 with Loss: 1.1291637420654297 and Accuracy: 0.5204497575759888
+Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29Accuracy: 0.29
+Performing K-Fold 4
+Finished epoch 1 with Loss: 1.376444935798645 and Accuracy: 0.2825254499912262
+Finished epoch 2 with Loss: 1.3638026714324951 and Accuracy: 0.3195926547050476
+Finished epoch 3 with Loss: 1.349884271621704 and Accuracy: 0.34329938888549805
+Finished epoch 4 with Loss: 1.334808588027954 and Accuracy: 0.3624439835548401
+Finished epoch 5 with Loss: 1.326137900352478 and Accuracy: 0.37026476860046387
+Finished epoch 6 with Loss: 1.3158801794052124 and Accuracy: 0.3834623098373413
+Finished epoch 7 with Loss: 1.307572603225708 and Accuracy: 0.3921792209148407
+Finished epoch 8 with Loss: 1.2957897186279297 and Accuracy: 0.40790224075317383
+Finished epoch 9 with Loss: 1.2885311841964722 and Accuracy: 0.4109979569911957
+Finished epoch 10 with Loss: 1.2804731130599976 and Accuracy: 0.4173523485660553
+Finished epoch 11 with Loss: 1.2741687297821045 and Accuracy: 0.42386963963508606
+Finished epoch 12 with Loss: 1.2671740055084229 and Accuracy: 0.4272097647190094
+Finished epoch 13 with Loss: 1.2606757879257202 and Accuracy: 0.43397149443626404
+Finished epoch 14 with Loss: 1.2549893856048584 and Accuracy: 0.4386965334415436
+Finished epoch 15 with Loss: 1.2510395050048828 and Accuracy: 0.44334012269973755
+Finished epoch 16 with Loss: 1.2460837364196777 and Accuracy: 0.44610998034477234
+Finished epoch 17 with Loss: 1.2409460544586182 and Accuracy: 0.44399183988571167
+Finished epoch 18 with Loss: 1.239169955253601 and Accuracy: 0.44855397939682007
+Finished epoch 19 with Loss: 1.2364388704299927 and Accuracy: 0.45270875096321106
+Finished epoch 20 with Loss: 1.2327088117599487 and Accuracy: 0.4553156793117523
+Finished epoch 21 with Loss: 1.2289628982543945 and Accuracy: 0.4560488760471344
+Finished epoch 22 with Loss: 1.2289665937423706 and Accuracy: 0.45735234022140503
+Finished epoch 23 with Loss: 1.2269574403762817 and Accuracy: 0.4567006230354309
+Finished epoch 24 with Loss: 1.2249821424484253 and Accuracy: 0.4590631425380707
+Finished epoch 25 with Loss: 1.2225077152252197 and Accuracy: 0.45987778902053833
+Finished epoch 26 with Loss: 1.2192186117172241 and Accuracy: 0.4589816629886627
+Finished epoch 27 with Loss: 1.2219533920288086 and Accuracy: 0.4615071415901184
+Finished epoch 28 with Loss: 1.218224287033081 and Accuracy: 0.4617515206336975
+Finished epoch 29 with Loss: 1.214930772781372 and Accuracy: 0.4612627327442169
+Finished epoch 30 with Loss: 1.217340350151062 and Accuracy: 0.4650101959705353
+Finished epoch 31 with Loss: 1.216066837310791 and Accuracy: 0.4681873619556427
+Finished epoch 32 with Loss: 1.2143548727035522 and Accuracy: 0.4656619131565094
+Finished epoch 33 with Loss: 1.2110017538070679 and Accuracy: 0.46663951873779297
+Finished epoch 34 with Loss: 1.211832880973816 and Accuracy: 0.47128310799598694
+Finished epoch 35 with Loss: 1.2076846361160278 and Accuracy: 0.4652545750141144
+Finished epoch 36 with Loss: 1.209869146347046 and Accuracy: 0.4708757698535919
+Finished epoch 37 with Loss: 1.2082741260528564 and Accuracy: 0.46949082612991333
+Finished epoch 38 with Loss: 1.2089277505874634 and Accuracy: 0.4674541652202606
+Finished epoch 39 with Loss: 1.2043248414993286 and Accuracy: 0.47103869915008545
+Finished epoch 40 with Loss: 1.2027127742767334 and Accuracy: 0.4718533456325531
+Finished epoch 41 with Loss: 1.2048534154891968 and Accuracy: 0.47193482518196106
+Finished epoch 42 with Loss: 1.2022370100021362 and Accuracy: 0.47128310799598694
+Finished epoch 43 with Loss: 1.2039321660995483 and Accuracy: 0.46582484245300293
+Finished epoch 44 with Loss: 1.2011094093322754 and Accuracy: 0.47494909167289734
+Finished epoch 45 with Loss: 1.1990816593170166 and Accuracy: 0.47617107629776
+Finished epoch 46 with Loss: 1.1980514526367188 and Accuracy: 0.4747861623764038
+Finished epoch 47 with Loss: 1.1973155736923218 and Accuracy: 0.47617107629776
+Finished epoch 48 with Loss: 1.1922205686569214 and Accuracy: 0.47837066650390625
+Finished epoch 49 with Loss: 1.1932330131530762 and Accuracy: 0.4794297218322754
+Finished epoch 50 with Loss: 1.1934248208999634 and Accuracy: 0.47397148609161377
+Finished epoch 51 with Loss: 1.191949486732483 and Accuracy: 0.47771894931793213
+Finished epoch 52 with Loss: 1.1916189193725586 and Accuracy: 0.4786965250968933
+Finished epoch 53 with Loss: 1.1927787065505981 and Accuracy: 0.4786965250968933
+Finished epoch 54 with Loss: 1.18850576877594 and Accuracy: 0.48114052414894104
+Finished epoch 55 with Loss: 1.1894630193710327 and Accuracy: 0.4782077372074127
+Finished epoch 56 with Loss: 1.1835488080978394 and Accuracy: 0.48358452320098877
+Finished epoch 57 with Loss: 1.1866689920425415 and Accuracy: 0.4795926809310913
+Finished epoch 58 with Loss: 1.1861554384231567 and Accuracy: 0.48138493299484253
+Finished epoch 59 with Loss: 1.1841504573822021 and Accuracy: 0.4818737208843231
+Finished epoch 60 with Loss: 1.1826211214065552 and Accuracy: 0.485784113407135
+Finished epoch 61 with Loss: 1.1826727390289307 and Accuracy: 0.4876578450202942
+Finished epoch 62 with Loss: 1.186646580696106 and Accuracy: 0.4800814688205719
+Finished epoch 63 with Loss: 1.1831471920013428 and Accuracy: 0.4803258776664734
+Finished epoch 64 with Loss: 1.1826056241989136 and Accuracy: 0.4842362403869629
+Finished epoch 65 with Loss: 1.180776834487915 and Accuracy: 0.4870060980319977
+Finished epoch 66 with Loss: 1.177556037902832 and Accuracy: 0.48635438084602356
+Finished epoch 67 with Loss: 1.177045464515686 and Accuracy: 0.49067211151123047
+Finished epoch 68 with Loss: 1.1784039735794067 and Accuracy: 0.4843991994857788
+Finished epoch 69 with Loss: 1.1763025522232056 and Accuracy: 0.4889613091945648
+Finished epoch 70 with Loss: 1.1740095615386963 and Accuracy: 0.49099797010421753
+Finished epoch 71 with Loss: 1.175988793373108 and Accuracy: 0.48708757758140564
+Finished epoch 72 with Loss: 1.175602912902832 and Accuracy: 0.49050915241241455
+Finished epoch 73 with Loss: 1.176403284072876 and Accuracy: 0.4917311668395996
+Finished epoch 74 with Loss: 1.1737759113311768 and Accuracy: 0.48847249150276184
+Finished epoch 75 with Loss: 1.1704275608062744 and Accuracy: 0.49213850498199463
+Finished epoch 76 with Loss: 1.170390009880066 and Accuracy: 0.48619145154953003
+Finished epoch 77 with Loss: 1.1702601909637451 and Accuracy: 0.49026477336883545
+Finished epoch 78 with Loss: 1.16982102394104 and Accuracy: 0.4936048984527588
+Finished epoch 79 with Loss: 1.1691343784332275 and Accuracy: 0.4956415593624115
+Finished epoch 80 with Loss: 1.1710190773010254 and Accuracy: 0.4887983798980713
+Finished epoch 81 with Loss: 1.1669760942459106 and Accuracy: 0.49539715051651
+Finished epoch 82 with Loss: 1.1680939197540283 and Accuracy: 0.4901018440723419
+Finished epoch 83 with Loss: 1.1657299995422363 and Accuracy: 0.49458247423171997
+Finished epoch 84 with Loss: 1.1664080619812012 and Accuracy: 0.4949083626270294
+Finished epoch 85 with Loss: 1.1658258438110352 and Accuracy: 0.4962932765483856
+Finished epoch 86 with Loss: 1.1650669574737549 and Accuracy: 0.5004480481147766
+Finished epoch 87 with Loss: 1.1637420654296875 and Accuracy: 0.4954786002635956
+Finished epoch 88 with Loss: 1.1633621454238892 and Accuracy: 0.4997963309288025
+Finished epoch 89 with Loss: 1.159670352935791 and Accuracy: 0.49800407886505127
+Finished epoch 90 with Loss: 1.1613984107971191 and Accuracy: 0.49686354398727417
+Finished epoch 91 with Loss: 1.1598291397094727 and Accuracy: 0.499551922082901
+Finished epoch 92 with Loss: 1.159719705581665 and Accuracy: 0.4976782202720642
+Finished epoch 93 with Loss: 1.1621710062026978 and Accuracy: 0.4997148811817169
+Finished epoch 94 with Loss: 1.1574655771255493 and Accuracy: 0.5028920769691467
+Finished epoch 95 with Loss: 1.1587538719177246 and Accuracy: 0.499959260225296
+Finished epoch 96 with Loss: 1.1568775177001953 and Accuracy: 0.5008553862571716
+Finished epoch 97 with Loss: 1.1567134857177734 and Accuracy: 0.5006110072135925
+Finished epoch 98 with Loss: 1.158332109451294 and Accuracy: 0.49441954493522644
+Finished epoch 99 with Loss: 1.1548545360565186 and Accuracy: 0.5036252737045288
+Finished epoch 100 with Loss: 1.156764268875122 and Accuracy: 0.4990631341934204
+Finished epoch 101 with Loss: 1.154198408126831 and Accuracy: 0.5010998249053955
+Finished epoch 102 with Loss: 1.15556800365448 and Accuracy: 0.505499005317688
+Finished epoch 103 with Loss: 1.1538251638412476 and Accuracy: 0.5027291178703308
+Finished epoch 104 with Loss: 1.1533552408218384 and Accuracy: 0.5012627243995667
+Finished epoch 105 with Loss: 1.1549674272537231 and Accuracy: 0.49898168444633484
+Finished epoch 106 with Loss: 1.1500324010849 and Accuracy: 0.5047658085823059
+Finished epoch 107 with Loss: 1.1527559757232666 and Accuracy: 0.49922606348991394
+Finished epoch 108 with Loss: 1.1539223194122314 and Accuracy: 0.5008553862571716
+Finished epoch 109 with Loss: 1.1513309478759766 and Accuracy: 0.5020774006843567
+Finished epoch 110 with Loss: 1.1456272602081299 and Accuracy: 0.5052545666694641
+Finished epoch 111 with Loss: 1.1486564874649048 and Accuracy: 0.504684329032898
+Finished epoch 112 with Loss: 1.1478848457336426 and Accuracy: 0.5081059336662292
+Finished epoch 113 with Loss: 1.1471948623657227 and Accuracy: 0.5072912573814392
+Finished epoch 114 with Loss: 1.1463682651519775 and Accuracy: 0.5063951015472412
+Finished epoch 115 with Loss: 1.1458885669708252 and Accuracy: 0.5039511322975159
+Finished epoch 116 with Loss: 1.1467349529266357 and Accuracy: 0.5029734969139099
+Finished epoch 117 with Loss: 1.1467400789260864 and Accuracy: 0.5059062838554382
+Finished epoch 118 with Loss: 1.1461460590362549 and Accuracy: 0.5059877634048462
+Finished epoch 119 with Loss: 1.1461594104766846 and Accuracy: 0.5065580606460571
+Finished epoch 120 with Loss: 1.1423618793487549 and Accuracy: 0.5108757615089417
+Finished epoch 121 with Loss: 1.1436033248901367 and Accuracy: 0.5121792554855347
+Finished epoch 122 with Loss: 1.1441121101379395 and Accuracy: 0.505499005317688
+Finished epoch 123 with Loss: 1.1417512893676758 and Accuracy: 0.5087576508522034
+Finished epoch 124 with Loss: 1.1443088054656982 and Accuracy: 0.5126680135726929
+Finished epoch 125 with Loss: 1.141272783279419 and Accuracy: 0.5107942819595337
+Finished epoch 126 with Loss: 1.141309142112732 and Accuracy: 0.5087576508522034
+Finished epoch 127 with Loss: 1.1382205486297607 and Accuracy: 0.5130753517150879
+Finished epoch 128 with Loss: 1.1389936208724976 and Accuracy: 0.5107128024101257
+Finished epoch 129 with Loss: 1.1440410614013672 and Accuracy: 0.5111201405525208
+Finished epoch 130 with Loss: 1.1395732164382935 and Accuracy: 0.5080244541168213
+Finished epoch 131 with Loss: 1.1412171125411987 and Accuracy: 0.5088391304016113
+Finished epoch 132 with Loss: 1.14192795753479 and Accuracy: 0.5107942819595337
+Finished epoch 133 with Loss: 1.138748288154602 and Accuracy: 0.515030562877655
+Finished epoch 134 with Loss: 1.139785647392273 and Accuracy: 0.5092464089393616
+Finished epoch 135 with Loss: 1.1381127834320068 and Accuracy: 0.5158452391624451
+Finished epoch 136 with Loss: 1.1360889673233032 and Accuracy: 0.5117719173431396
+Finished epoch 137 with Loss: 1.1386265754699707 and Accuracy: 0.5108757615089417
+Finished epoch 138 with Loss: 1.14116370677948 and Accuracy: 0.5124236345291138
+Finished epoch 139 with Loss: 1.1379587650299072 and Accuracy: 0.5122606754302979
+Finished epoch 140 with Loss: 1.1354947090148926 and Accuracy: 0.5178003907203674
+Finished epoch 141 with Loss: 1.1338688135147095 and Accuracy: 0.5125865340232849
+Finished epoch 142 with Loss: 1.133795142173767 and Accuracy: 0.5112830996513367
+Finished epoch 143 with Loss: 1.135305404663086 and Accuracy: 0.5131568312644958
+Finished epoch 144 with Loss: 1.1315243244171143 and Accuracy: 0.5131568312644958
+Finished epoch 145 with Loss: 1.128255009651184 and Accuracy: 0.5162525177001953
+Finished epoch 146 with Loss: 1.1395206451416016 and Accuracy: 0.5105499029159546
+Finished epoch 147 with Loss: 1.133562684059143 and Accuracy: 0.5134826898574829
+Finished epoch 148 with Loss: 1.1326234340667725 and Accuracy: 0.5160081386566162
+Finished epoch 149 with Loss: 1.1380881071090698 and Accuracy: 0.5089205503463745
+Finished epoch 150 with Loss: 1.1324983835220337 and Accuracy: 0.5098167061805725
+Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41Accuracy: 0.41
+Performing K-Fold 5
+Finished epoch 1 with Loss: 1.3739013671875 and Accuracy: 0.29816702008247375
+Finished epoch 2 with Loss: 1.3599108457565308 and Accuracy: 0.3319755494594574
+Finished epoch 3 with Loss: 1.347953200340271 and Accuracy: 0.35356414318084717
+Finished epoch 4 with Loss: 1.3364778757095337 and Accuracy: 0.3619551956653595
+Finished epoch 5 with Loss: 1.3303203582763672 and Accuracy: 0.37164968252182007
+Finished epoch 6 with Loss: 1.3221780061721802 and Accuracy: 0.3843584656715393
+Finished epoch 7 with Loss: 1.312715768814087 and Accuracy: 0.39389002323150635
+Finished epoch 8 with Loss: 1.3016093969345093 and Accuracy: 0.4049694538116455
+Finished epoch 9 with Loss: 1.2921656370162964 and Accuracy: 0.409368634223938
+Finished epoch 10 with Loss: 1.2852115631103516 and Accuracy: 0.4114052951335907
+Finished epoch 11 with Loss: 1.275803804397583 and Accuracy: 0.42134419083595276
+Finished epoch 12 with Loss: 1.2697582244873047 and Accuracy: 0.4294908344745636
+Finished epoch 13 with Loss: 1.263564109802246 and Accuracy: 0.4302240312099457
+Finished epoch 14 with Loss: 1.2562311887741089 and Accuracy: 0.4384521245956421
+Finished epoch 15 with Loss: 1.2504829168319702 and Accuracy: 0.43853360414505005
+Finished epoch 16 with Loss: 1.2501119375228882 and Accuracy: 0.44358453154563904
+Finished epoch 17 with Loss: 1.248772382736206 and Accuracy: 0.4435030519962311
+Finished epoch 18 with Loss: 1.244730830192566 and Accuracy: 0.44423624873161316
+Finished epoch 19 with Loss: 1.24192476272583 and Accuracy: 0.44725051522254944
+Finished epoch 20 with Loss: 1.2415693998336792 and Accuracy: 0.4492056965827942
+Finished epoch 21 with Loss: 1.2384366989135742 and Accuracy: 0.448228120803833
+Finished epoch 22 with Loss: 1.236079216003418 and Accuracy: 0.4508350193500519
+Finished epoch 23 with Loss: 1.2376830577850342 and Accuracy: 0.44773930311203003
+Finished epoch 24 with Loss: 1.2370755672454834 and Accuracy: 0.4507535696029663
+Finished epoch 25 with Loss: 1.231015920639038 and Accuracy: 0.4528716802597046
+Finished epoch 26 with Loss: 1.2307735681533813 and Accuracy: 0.45384928584098816
+Finished epoch 27 with Loss: 1.2273290157318115 and Accuracy: 0.4542566239833832
+Finished epoch 28 with Loss: 1.2260957956314087 and Accuracy: 0.4553971588611603
+Finished epoch 29 with Loss: 1.2260957956314087 and Accuracy: 0.45637473464012146
+Finished epoch 30 with Loss: 1.225386381149292 and Accuracy: 0.45775967836380005
+Finished epoch 31 with Loss: 1.2230829000473022 and Accuracy: 0.456537663936615
+Finished epoch 32 with Loss: 1.2207262516021729 and Accuracy: 0.45890021324157715
+Finished epoch 33 with Loss: 1.2219593524932861 and Accuracy: 0.46101832389831543
+Finished epoch 34 with Loss: 1.2188206911087036 and Accuracy: 0.4624847173690796
+Finished epoch 35 with Loss: 1.2174592018127441 and Accuracy: 0.46069246530532837
+Finished epoch 36 with Loss: 1.2154566049575806 and Accuracy: 0.4622403383255005
+Finished epoch 37 with Loss: 1.2138549089431763 and Accuracy: 0.46093687415122986
+Finished epoch 38 with Loss: 1.214205026626587 and Accuracy: 0.4631364643573761
+Finished epoch 39 with Loss: 1.215090274810791 and Accuracy: 0.4615071415901184
+Finished epoch 40 with Loss: 1.2127245664596558 and Accuracy: 0.46142566204071045
+Finished epoch 41 with Loss: 1.2113707065582275 and Accuracy: 0.4659063220024109
+Finished epoch 42 with Loss: 1.2111027240753174 and Accuracy: 0.46118125319480896
+Finished epoch 43 with Loss: 1.2086683511734009 and Accuracy: 0.4700610935688019
+Finished epoch 44 with Loss: 1.2105274200439453 and Accuracy: 0.4636252522468567
+Finished epoch 45 with Loss: 1.2029497623443604 and Accuracy: 0.46786150336265564
+Finished epoch 46 with Loss: 1.2086111307144165 and Accuracy: 0.46598777174949646
+Finished epoch 47 with Loss: 1.2034176588058472 and Accuracy: 0.4684317708015442
+Finished epoch 48 with Loss: 1.2004145383834839 and Accuracy: 0.4697352349758148
+Finished epoch 49 with Loss: 1.2004367113113403 and Accuracy: 0.47054991126060486
+Finished epoch 50 with Loss: 1.2039132118225098 and Accuracy: 0.46924644708633423
+Finished epoch 51 with Loss: 1.1995593309402466 and Accuracy: 0.46688389778137207
+Finished epoch 52 with Loss: 1.1995196342468262 and Accuracy: 0.47446027398109436
+Finished epoch 53 with Loss: 1.20068359375 and Accuracy: 0.4704684317111969
+Finished epoch 54 with Loss: 1.1968306303024292 and Accuracy: 0.4764154851436615
+Finished epoch 55 with Loss: 1.1989679336547852 and Accuracy: 0.47217923402786255
+Finished epoch 56 with Loss: 1.1946996450424194 and Accuracy: 0.4759266674518585
+Finished epoch 57 with Loss: 1.1968274116516113 and Accuracy: 0.4738900065422058
+Finished epoch 58 with Loss: 1.1958318948745728 and Accuracy: 0.47283095121383667
+Finished epoch 59 with Loss: 1.194602131843567 and Accuracy: 0.47796332836151123
+Finished epoch 60 with Loss: 1.19368577003479 and Accuracy: 0.47535642981529236
+Finished epoch 61 with Loss: 1.1917208433151245 and Accuracy: 0.4773116111755371
+Finished epoch 62 with Loss: 1.1905345916748047 and Accuracy: 0.47657841444015503
+Finished epoch 63 with Loss: 1.1892904043197632 and Accuracy: 0.4766598641872406
+Finished epoch 64 with Loss: 1.1881921291351318 and Accuracy: 0.4821181297302246
+Finished epoch 65 with Loss: 1.188155174255371 and Accuracy: 0.4747861623764038
+Finished epoch 66 with Loss: 1.1883207559585571 and Accuracy: 0.48594704270362854
+Finished epoch 67 with Loss: 1.1867923736572266 and Accuracy: 0.4804888069629669
+Finished epoch 68 with Loss: 1.1839097738265991 and Accuracy: 0.48244398832321167
+Finished epoch 69 with Loss: 1.1823434829711914 and Accuracy: 0.4821995794773102
+Finished epoch 70 with Loss: 1.1834481954574585 and Accuracy: 0.4803258776664734
+Finished epoch 71 with Loss: 1.1828784942626953 and Accuracy: 0.4785335958003998
+Finished epoch 72 with Loss: 1.1846034526824951 and Accuracy: 0.48407331109046936
+Finished epoch 73 with Loss: 1.1828029155731201 and Accuracy: 0.48276984691619873
+Finished epoch 74 with Loss: 1.1795557737350464 and Accuracy: 0.4839918613433838
+Finished epoch 75 with Loss: 1.1777009963989258 and Accuracy: 0.48537677526474
+Finished epoch 76 with Loss: 1.180946946144104 and Accuracy: 0.4851323962211609
+Finished epoch 77 with Loss: 1.1773709058761597 and Accuracy: 0.4818737208843231
+Finished epoch 78 with Loss: 1.1789180040359497 and Accuracy: 0.48391038179397583
+Finished epoch 79 with Loss: 1.1760755777359009 and Accuracy: 0.490427702665329
+Finished epoch 80 with Loss: 1.1752004623413086 and Accuracy: 0.4818737208843231
+Finished epoch 81 with Loss: 1.1770262718200684 and Accuracy: 0.4842362403869629
+Finished epoch 82 with Loss: 1.1748130321502686 and Accuracy: 0.48757636547088623
+Finished epoch 83 with Loss: 1.1750768423080444 and Accuracy: 0.4890427589416504
+Finished epoch 84 with Loss: 1.174496054649353 and Accuracy: 0.4889613091945648
+Finished epoch 85 with Loss: 1.1762032508850098 and Accuracy: 0.4874134361743927
+Finished epoch 86 with Loss: 1.1713247299194336 and Accuracy: 0.48977595567703247
+Finished epoch 87 with Loss: 1.173012614250183 and Accuracy: 0.4917311668395996
+Finished epoch 88 with Loss: 1.1725584268569946 and Accuracy: 0.48977595567703247
+Finished epoch 89 with Loss: 1.1719391345977783 and Accuracy: 0.4938492774963379
+Finished epoch 90 with Loss: 1.1711558103561401 and Accuracy: 0.4883095622062683
+Finished epoch 91 with Loss: 1.169798493385315 and Accuracy: 0.48643583059310913
+Finished epoch 92 with Loss: 1.1695488691329956 and Accuracy: 0.48822811245918274
+Finished epoch 93 with Loss: 1.1669981479644775 and Accuracy: 0.49327901005744934
+Finished epoch 94 with Loss: 1.1653932332992554 and Accuracy: 0.4933604896068573
+Finished epoch 95 with Loss: 1.1651637554168701 and Accuracy: 0.4956415593624115
+Finished epoch 96 with Loss: 1.1638466119766235 and Accuracy: 0.49539715051651
+Finished epoch 97 with Loss: 1.1655223369598389 and Accuracy: 0.49279022216796875
+Finished epoch 98 with Loss: 1.1680594682693481 and Accuracy: 0.48953157663345337
+Finished epoch 99 with Loss: 1.1647037267684937 and Accuracy: 0.4918126165866852
+Finished epoch 100 with Loss: 1.1657124757766724 and Accuracy: 0.49319756031036377
+Finished epoch 101 with Loss: 1.1633747816085815 and Accuracy: 0.49189409613609314
+Finished epoch 102 with Loss: 1.1615054607391357 and Accuracy: 0.4963747560977936
+Finished epoch 103 with Loss: 1.1612310409545898 and Accuracy: 0.49873727560043335
+Finished epoch 104 with Loss: 1.1622281074523926 and Accuracy: 0.4997963309288025
+Finished epoch 105 with Loss: 1.1589267253875732 and Accuracy: 0.49507129192352295
+Finished epoch 106 with Loss: 1.1626145839691162 and Accuracy: 0.4951527416706085
+Finished epoch 107 with Loss: 1.159870982170105 and Accuracy: 0.49099797010421753
+Finished epoch 108 with Loss: 1.1618961095809937 and Accuracy: 0.48887982964515686
+Finished epoch 109 with Loss: 1.1583410501480103 and Accuracy: 0.49759674072265625
+Finished epoch 110 with Loss: 1.1620032787322998 and Accuracy: 0.49433809518814087
+Finished epoch 111 with Loss: 1.1592758893966675 and Accuracy: 0.49507129192352295
+Finished epoch 112 with Loss: 1.1557401418685913 and Accuracy: 0.49507129192352295
+Finished epoch 113 with Loss: 1.1584692001342773 and Accuracy: 0.4967820644378662
+Finished epoch 114 with Loss: 1.1609946489334106 and Accuracy: 0.4936048984527588
+Finished epoch 115 with Loss: 1.1548517942428589 and Accuracy: 0.49572300910949707
+Finished epoch 116 with Loss: 1.1587988138198853 and Accuracy: 0.49824845790863037
+Finished epoch 117 with Loss: 1.1552280187606812 and Accuracy: 0.4989002048969269
+Finished epoch 118 with Loss: 1.1536074876785278 and Accuracy: 0.4985743463039398
+Finished epoch 119 with Loss: 1.153974175453186 and Accuracy: 0.5005295276641846
+Finished epoch 120 with Loss: 1.155103087425232 and Accuracy: 0.5003666281700134
+Finished epoch 121 with Loss: 1.1563318967819214 and Accuracy: 0.4958859384059906
+Finished epoch 122 with Loss: 1.1514060497283936 and Accuracy: 0.49898168444633484
+Finished epoch 123 with Loss: 1.1546167135238647 and Accuracy: 0.5020774006843567
+Finished epoch 124 with Loss: 1.1523115634918213 and Accuracy: 0.4997963309288025
+Finished epoch 125 with Loss: 1.1529356241226196 and Accuracy: 0.5019144415855408
+Finished epoch 126 with Loss: 1.1536599397659302 and Accuracy: 0.4984114170074463
+Finished epoch 127 with Loss: 1.1529518365859985 and Accuracy: 0.49759674072265625
+Finished epoch 128 with Loss: 1.152974247932434 and Accuracy: 0.49938899278640747
+Finished epoch 129 with Loss: 1.1488690376281738 and Accuracy: 0.5015885829925537
+Finished epoch 130 with Loss: 1.1477349996566772 and Accuracy: 0.504195511341095
+Finished epoch 131 with Loss: 1.1468701362609863 and Accuracy: 0.5074541568756104
+Finished epoch 132 with Loss: 1.1456162929534912 and Accuracy: 0.5030549764633179
+Finished epoch 133 with Loss: 1.1516706943511963 and Accuracy: 0.5034623146057129
+Finished epoch 134 with Loss: 1.1490107774734497 and Accuracy: 0.49824845790863037
+Finished epoch 135 with Loss: 1.1471798419952393 and Accuracy: 0.5032179355621338
+Finished epoch 136 with Loss: 1.1466032266616821 and Accuracy: 0.505010187625885
+Finished epoch 137 with Loss: 1.1467081308364868 and Accuracy: 0.5034623146057129
+Finished epoch 138 with Loss: 1.1467679738998413 and Accuracy: 0.5056619048118591
+Finished epoch 139 with Loss: 1.1475518941879272 and Accuracy: 0.50541752576828
+Finished epoch 140 with Loss: 1.1440926790237427 and Accuracy: 0.5063951015472412
+Finished epoch 141 with Loss: 1.144436001777649 and Accuracy: 0.5081059336662292
+Finished epoch 142 with Loss: 1.1462180614471436 and Accuracy: 0.5098981857299805
+Finished epoch 143 with Loss: 1.1458740234375 and Accuracy: 0.5034623146057129
+Finished epoch 144 with Loss: 1.1444655656814575 and Accuracy: 0.5077800154685974
+Finished epoch 145 with Loss: 1.1415742635726929 and Accuracy: 0.5077800154685974
+Finished epoch 146 with Loss: 1.137429118156433 and Accuracy: 0.5103055238723755
+Finished epoch 147 with Loss: 1.143663763999939 and Accuracy: 0.5023217797279358
+Finished epoch 148 with Loss: 1.1396592855453491 and Accuracy: 0.5107942819595337
+Finished epoch 149 with Loss: 1.1421064138412476 and Accuracy: 0.5066395401954651
+Finished epoch 150 with Loss: 1.141173243522644 and Accuracy: 0.5112830996513367
+Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40Accuracy: 0.40
+Accuracy: 37.22
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h39>
+Subject: Job 345489[3]: <job_arr[1-3]> in cluster <henry2> Done
+
+Job <job_arr[1-3]> was submitted from host <login02> by user <mjhouk> in cluster <henry2> at Tue Jul  6 02:54:26 2021
+Job was executed on host(s) <n3h39>, in queue <gpu>, as user <mjhouk> in cluster <henry2> at Tue Jul  6 10:40:23 2021
+</home/mjhouk> was used as the home directory.
+</home/mjhouk/MB3DCNN/Groups> was used as the working directory.
+Started at Tue Jul  6 10:40:23 2021
+Terminated at Tue Jul  6 13:04:28 2021
+Results reported at Tue Jul  6 13:04:28 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/csh
+
+#BSUB -J job_arr[1-3]
+#BSUB -x
+#BSUB -R "span[hosts=1]"
+#BSUB -W 900
+#BSUB -q gpu
+#BSUB -R "select[p100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o ./out/trial-%I-%J.out
+#BSUB -e ./out/trial-%I-%J.err
+
+set run = true
+set gpu = "`nvidia-smi --query-gpu=gpu_name --format=csv,noheader`"
+echo "Found $gpu GPU"
+if ( "$gpu" =~ *"K20m"* ) then
+	set cuda_cmd = "module load cuda/10.1"
+	set env_cmd = "conda activate tf220_py377"
+else if ( "$gpu" =~ *"P100"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"GTX 1080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"RTX 2080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else 
+	set run = false
+endif
+
+if ( "$run" =~ true ) then
+
+	echo "Loading libraries"
+
+	eval $env_cmd
+	eval $cuda_cmd
+
+	setenv OMP_NUM_THREADS 2
+
+	echo "Running OAT Trial $LSB_JOBINDEX with ID $LSB_JOBID"
+	python runMotor.py ${LSB_JOBINDEX} ${LSB_JOBID}
+
+else
+
+	echo "GPU not available, cancelling job for OAT Trial $LSB_JOBINDEX"	
+
+endif
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   10795.00 sec.
+    Max Memory :                                 23766.65 MB
+    Average Memory :                             22465.27 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   128 KB
+    Max Processes :                              4
+    Max Threads :                                121
+    Run time :                                   8660 sec.
+    Turnaround time :                            36602 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./out/trial-3-345489.err> for stderr output of this job.
+

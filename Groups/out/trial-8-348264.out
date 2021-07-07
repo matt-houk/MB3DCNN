@@ -1,0 +1,107 @@
+Found Tesla P100-PCIE-16GB GPU
+Loading libraries
+Running OAT Trial 8 with ID 348264
+Verifying thread usage params
+Intra Op Threads:	 0
+Inter Op Threads:	 0
+Data Loaded
+Beginning K-Fold Analysis
+Performing K-Fold 1
+Getting Model
+Beginning Model Training
+Finished epoch 1 with Loss: 1.385232925415039 and Accuracy: 0.27668240666389465
+Finished epoch 2 with Loss: 1.3754881620407104 and Accuracy: 0.3027537763118744
+Finished epoch 3 with Loss: 1.3687119483947754 and Accuracy: 0.3108196258544922
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h39>
+Subject: Job 348264[8]: <job_arr[8]> in cluster <henry2> Exited
+
+Job <job_arr[8]> was submitted from host <login02> by user <mjhouk> in cluster <henry2> at Tue Jul  6 23:56:44 2021
+Job was executed on host(s) <n3h39>, in queue <gpu>, as user <mjhouk> in cluster <henry2> at Tue Jul  6 23:56:46 2021
+</home/mjhouk> was used as the home directory.
+</home/mjhouk/MB3DCNN/Groups> was used as the working directory.
+Started at Tue Jul  6 23:56:46 2021
+Terminated at Tue Jul  6 23:58:17 2021
+Results reported at Tue Jul  6 23:58:17 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/csh
+
+#BSUB -J job_arr[8]
+#BSUB -x
+#BSUB -R "span[hosts=1]"
+#BSUB -W 900
+#BSUB -q gpu
+#BSUB -R "select[p100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o ./out/trial-%I-%J.out
+#BSUB -e ./out/trial-%I-%J.err
+
+set run = true
+set gpu = "`nvidia-smi --query-gpu=gpu_name --format=csv,noheader`"
+echo "Found $gpu GPU"
+if ( "$gpu" =~ *"K20m"* ) then
+	set cuda_cmd = "module load cuda/10.1"
+	set env_cmd = "conda activate tf220_py377"
+else if ( "$gpu" =~ *"P100"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"GTX 1080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"RTX 2080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else 
+	set run = false
+endif
+
+if ( "$run" =~ true ) then
+
+	echo "Loading libraries"
+
+	eval $env_cmd
+	eval $cuda_cmd
+
+	setenv OMP_NUM_THREADS 2
+
+	echo "Running OAT Trial $LSB_JOBINDEX with ID $LSB_JOBID"
+	python runMotor.py ${LSB_JOBINDEX} ${LSB_JOBID}
+
+else
+
+	echo "GPU not available, cancelling job for OAT Trial $LSB_JOBINDEX"	
+
+endif
+
+
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   76.00 sec.
+    Max Memory :                                 21435.90 MB
+    Average Memory :                             15291.94 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                112
+    Run time :                                   116 sec.
+    Turnaround time :                            93 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./out/trial-8-348264.err> for stderr output of this job.
+

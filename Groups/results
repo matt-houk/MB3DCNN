@@ -1,0 +1,84 @@
+JOB ID - Accuracy %
+279615 - 74.24%
+279613 - 80.65%
+279614 - 73.94%
+279621 - 74.51%
+279632 - 99.51%
+279626 - 69.04%
+287024 - 46.27%
+287026 - 41.18%
+287510 - 42.84%
+287023 - 74.79%
+287535 - 46.10%
+287531 - 74.30%
+300274 - 35.42%
+300277 - 35.59%
+300402 - 37.98%
+300423 - 67.72%
+300450 - 35.90%
+303149 - 55.68%
+303150 - 68.85%
+304375 - 64.06%
+304376 - 66.59%
+312551 - 61.24%
+317066 - 68.11%
+317067 - 72.81%
+317124 - 71.30%
+317128 - 72.56%
+321504 - 70.13%
+321507 - 99.70%
+321508 - 47.96%
+321513 - 99.54%
+321513 - 43.38%
+321514 - 95.43%
+321514 - 43.90%
+322241 - 99.92%
+322241 - 36.08%
+325241 - 99.37%
+325241 - 48.23%
+325574 - 99.92%
+325574 - 45.48%
+326140 - 99.86%
+326140 - 45.21%
+326154 - 99.02%
+326154 - 43.74%
+326671 - 99.97%
+326671 - 49.46%
+328124 - 95.97%
+328124 - 43.63%
+332616 - Emotion - Subject 1 - 10-Fold - 96.65%
+332615 - Motor - Subject 1 - 10-Fold - 65.70%
+332616 - Emotion - Subject 2 - 10-Fold - 27.59%
+332616 - Emotion - Subject 3 - 10-Fold - 65.77%
+332616 - Emotion - Subject 4 - 10-Fold - 98.72%
+332616 - Emotion - Subject 5 - 10-Fold - 42.46%
+333327 - Emotion - Subject 6 - 10-Fold - 100.00%
+333327 - Emotion - Subject 7 - 10-Fold - 99.65%
+333327 - Emotion - Subject 8 - 10-Fold - 100.00%
+333327 - Emotion - Subject 9 - 10-Fold - 99.51%
+333327 - Emotion - Subject 10 - 10-Fold - 100.00%
+333327 - Emotion - Subject 11 - 10-Fold - 100.00%
+333327 - Emotion - TRAINED - Subject 12 - 10-Fold - 71.13%
+333327 - Emotion - TRAINED - Subject 13 - 10-Fold - 100.00%
+333327 - Emotion - TRAINED - Subject 14 - 10-Fold - 100.00%
+333327 - Emotion - TRAINED - Subject 15 - 10-Fold - 100.00%
+334903 - Motor - Subject 2 - 10-Fold - 63.67%
+334903 - Motor - Subject 3 - 10-Fold - 76.40%
+334903 - Motor - Subject 4 - 10-Fold - 76.28%
+334903 - Motor - Subject 5 - 10-Fold - 75.67%
+338681 - Motor - Subject 6 - 10-Fold - 72.78%
+338681 - Motor - Subject 7 - 10-Fold - 72.87%
+338681 - Motor - Subject 8 - 10-Fold - 64.95%
+338681 - Motor - Subject 9 - 10-Fold - 74.63%
+344895 - Emotion - UNTRAINED - Subject 1 - 5-Fold - 26.58%
+344895 - Emotion - UNTRAINED - Subject 2 - 5-Fold - 23.20%
+344895 - Emotion - UNTRAINED - Subject 3 - 5-Fold - 24.44%
+344895 - Emotion - UNTRAINED - Subject 4 - 5-Fold - 25.22%
+344895 - Emotion - UNTRAINED - Subject 5 - 5-Fold - 23.51%
+345489 - Motor - UNTRAINED - OUTSIDE Subject 1 - 10-Fold - 29.95%
+345489 - Motor - UNTRAINED - OUTSIDE Subject 2 - 5-Fold - 37.08%
+345489 - Motor - UNTRAINED - OUTSIDE Subject 3 - 5-Fold - 37.22%
+345494 - Motor - UNTRAINED - OUTSIDE Subject 4 - 5-Fold - 37.50%
+345494 - Motor - UNTRAINED - OUTSIDE Subject 5 - 5-Fold - 46.94%
+345494 - Motor - UNTRAINED - OUTSIDE Subject 6 - 5-Fold - 42.69%
+345494 - Motor - UNTRAINED - OUTSIDE Subject 7 - 5-Fold - 50.94%

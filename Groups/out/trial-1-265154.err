@@ -1,0 +1,4 @@
+  File "runSplit.py", line 69
+    trialNum = int(sys.argv[1])init_lr = 0.00001
+                                     ^
+SyntaxError: invalid syntax

@@ -1,0 +1,145 @@
+Found GeForce GTX 1080 GPU
+Loading libraries
+Running OAT Trial 1 with ID 313329
+'TF_NUM_INTEROP_THREADS' not found, adding and setting to '1'
+'TF_NUM_INTRAOP_THREADS' not found, adding and setting to '1'
+TF_NUM_INTEROP_THREADS = 1
+TF_NUM_INTRAOP_THREADS = 1
+Verifying thread usage params
+Intra Op Threads:	 0
+Inter Op Threads:	 0
+Performing K-Fold 1
+Finished epoch 1 with Loss: 1.4181119203567505 and Accuracy: 0.23685206472873688
+Finished epoch 2 with Loss: 1.4017996788024902 and Accuracy: 0.23079833388328552
+Finished epoch 3 with Loss: 1.3976118564605713 and Accuracy: 0.24328415095806122
+Finished epoch 4 with Loss: 1.3929024934768677 and Accuracy: 0.2489595115184784
+Finished epoch 5 with Loss: 1.392910361289978 and Accuracy: 0.26939085125923157
+Finished epoch 6 with Loss: 1.3973617553710938 and Accuracy: 0.24252742528915405
+Finished epoch 7 with Loss: 1.3852887153625488 and Accuracy: 0.2557699680328369
+Finished epoch 8 with Loss: 1.3935893774032593 and Accuracy: 0.24744608998298645
+Finished epoch 9 with Loss: 1.3829249143600464 and Accuracy: 0.2667423486709595
+Finished epoch 10 with Loss: 1.3855817317962646 and Accuracy: 0.2587968111038208
+Finished epoch 11 with Loss: 1.3839250802993774 and Accuracy: 0.25993189215660095
+Finished epoch 12 with Loss: 1.3784153461456299 and Accuracy: 0.28187665343284607
+Finished epoch 13 with Loss: 1.3789327144622803 and Accuracy: 0.27695798873901367
+Finished epoch 14 with Loss: 1.3740489482879639 and Accuracy: 0.2807415723800659
+Finished epoch 15 with Loss: 1.3718440532684326 and Accuracy: 0.2811199426651001
+Finished epoch 16 with Loss: 1.3713160753250122 and Accuracy: 0.2989027500152588
+Finished epoch 17 with Loss: 1.3692753314971924 and Accuracy: 0.298524409532547
+Finished epoch 18 with Loss: 1.3706836700439453 and Accuracy: 0.29247066378593445
+Finished epoch 19 with Loss: 1.362586259841919 and Accuracy: 0.31214529275894165
+Finished epoch 20 with Loss: 1.360525369644165 and Accuracy: 0.31668558716773987
+Finished epoch 21 with Loss: 1.3589743375778198 and Accuracy: 0.30268633365631104
+Finished epoch 22 with Loss: 1.3589414358139038 and Accuracy: 0.30495649576187134
+Finished epoch 23 with Loss: 1.3569023609161377 and Accuracy: 0.318577378988266
+Finished epoch 24 with Loss: 1.3571292161941528 and Accuracy: 0.30419978499412537
+Finished epoch 25 with Loss: 1.3556569814682007 and Accuracy: 0.3136587142944336
+Finished epoch 26 with Loss: 1.3519123792648315 and Accuracy: 0.3181990087032318
+Finished epoch 27 with Loss: 1.3473409414291382 and Accuracy: 0.33711692690849304
+Finished epoch 28 with Loss: 1.3478095531463623 and Accuracy: 0.31668558716773987
+Finished epoch 29 with Loss: 1.344590187072754 and Accuracy: 0.34014376997947693
+Finished epoch 30 with Loss: 1.3435977697372437 and Accuracy: 0.33976542949676514
+Finished epoch 31 with Loss: 1.3384727239608765 and Accuracy: 0.35452136397361755
+Finished epoch 32 with Loss: 1.340734839439392 and Accuracy: 0.3507378101348877
+Finished epoch 33 with Loss: 1.343545913696289 and Accuracy: 0.3461975157260895
+Finished epoch 34 with Loss: 1.3361766338348389 and Accuracy: 0.3560348153114319
+Finished epoch 35 with Loss: 1.3344008922576904 and Accuracy: 0.34960272908210754
+Finished epoch 36 with Loss: 1.3351829051971436 and Accuracy: 0.3556564450263977
+Finished epoch 37 with Loss: 1.3264031410217285 and Accuracy: 0.3783579170703888
+Finished epoch 38 with Loss: 1.3306841850280762 and Accuracy: 0.35981839895248413
+Finished epoch 39 with Loss: 1.3304076194763184 and Accuracy: 0.3560348153114319
+Finished epoch 40 with Loss: 1.323401927947998 and Accuracy: 0.37003403902053833
+Finished epoch 41 with Loss: 1.3186168670654297 and Accuracy: 0.39387059211730957
+Finished epoch 42 with Loss: 1.3216372728347778 and Accuracy: 0.38138478994369507
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3h37>
+Subject: Job 313329[1]: <job_arr[1]> in cluster <henry2> Done
+
+Job <job_arr[1]> was submitted from host <login01> by user <mjhouk> in cluster <henry2> at Thu Jun 24 16:19:17 2021
+Job was executed on host(s) <n3h37>, in queue <gpu>, as user <mjhouk> in cluster <henry2> at Fri Jun 25 01:36:00 2021
+</home/mjhouk> was used as the home directory.
+</home/mjhouk/MB3DCNN/Groups> was used as the working directory.
+Started at Fri Jun 25 01:36:00 2021
+Terminated at Fri Jun 25 01:36:56 2021
+Results reported at Fri Jun 25 01:36:56 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/csh
+
+#BSUB -J job_arr[1]
+#BSUB -x
+#BSUB -R "span[hosts=1]"
+#BSUB -W 900
+#BSUB -q gpu
+#BSUB -R "select[rtx2080 || gtx1080 || p100]"
+#BSUB -gpu "num=1:mode=shared:mps=yes"
+#BSUB -o ./out/trial-%I-%J.out
+#BSUB -e ./out/trial-%I-%J.err
+
+set run = true
+set gpu = "`nvidia-smi --query-gpu=gpu_name --format=csv,noheader`"
+echo "Found $gpu GPU"
+if ( "$gpu" =~ *"K20m"* ) then
+	set cuda_cmd = "module load cuda/10.1"
+	set env_cmd = "conda activate tf220_py377"
+else if ( "$gpu" =~ *"P100"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"GTX 1080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"RTX 2080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else 
+	set run = false
+endif
+
+if ( "$run" =~ true ) then
+
+	echo "Loading libraries"
+
+	eval $env_cmd
+	eval $cuda_cmd
+
+	setenv OMP_NUM_THREADS 2
+
+	echo "Running OAT Trial $LSB_JOBINDEX with ID $LSB_JOBID"
+	python runEmotion.py ${LSB_JOBINDEX} ${LSB_JOBID}
+
+else
+
+	echo "GPU not available, cancelling job for OAT Trial $LSB_JOBINDEX"	
+
+endif
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   79.00 sec.
+    Max Memory :                                 1271.88 MB
+    Average Memory :                             981.03 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                19
+    Run time :                                   63 sec.
+    Turnaround time :                            33459 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./out/trial-1-313329.err> for stderr output of this job.
+

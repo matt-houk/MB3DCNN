@@ -1,0 +1,204 @@
+from MB3DEEGNet import EEGNet3D
+from tensorflow.keras import utils as np_utils
+import matplotlib.pyplot as plt
+from sklearn.model_selection import KFold, train_test_split
+import numpy as np
+import sys
+import os
+
+KFOLD = True
+KFOLD_NUM = 5
+
+SUBJECT = sys.argv[1]
+
+try:
+	print("TF_NUM_INTEROP_THREADS =", os.environ['TF_NUM_INTEROP_THREADS'])
+except KeyError:
+	print("'TF_NUM_INTEROP_THREADS' not found, adding and setting to '1'")
+	os.environ['TF_NUM_INTEROP_THREADS'] = '1'
+try:
+	print("TF_NUM_INTRAOP_THREADS =", os.environ['TF_NUM_INTRAOP_THREADS'])
+except KeyError:
+	print("'TF_NUM_INTRAOP_THREADS' not found, adding and setting to '1'")
+	os.environ['TF_NUM_INTRAOP_THREADS'] = '1'
+
+import tensorflow as tf
+
+OUT_FILE = "./results"
+
+#tf.config.threading.set_intra_op_parallelism_threads(2)
+#tf.config.threading.set_inter_op_parallelism_threads(2)
+#tf.config.set_soft_device_placement(True)
+
+physical_devices = tf.config.list_physical_devices('GPU')
+try:
+	tf.config.experimental.set_memory_growth(physical_devices[0], True)
+except:
+	print("Invalid device or cannot modify virtual device once initialized")
+	pass
+
+DATA_DIR = "/share/multibranch/datasets/BCICIV_2a_shuffled/"
+
+def load_data(data_dir, num, et):
+	x = np.load(data_dir + "A0" + str(num) + str(et) + "D_shuffled.npy", encoding='latin1', allow_pickle=True).astype(np.float64)
+	y = np.load(data_dir + "A0" + str(num) + str(et) + "K_shuffled.npy", encoding='latin1', allow_pickle=True).astype(np.float64)
+	#x = list(x)
+	#y = list(y)
+	#x = np.array(x).astype(np.float64)
+	#y = np.array(y).astype(np.float64)
+	return x, y
+
+class CustomCallback(tf.keras.callbacks.Callback):
+	def on_epoch_end(self, epoch, logs=None):
+		print("Finished epoch {} with Loss: {} and Accuracy: {}".format(epoch+1, logs['loss'], logs['accuracy']))
+		sys.stdout.flush()
+
+try:
+	print("TF_NUM_INTEROP_THREADS =", os.environ['TF_NUM_INTEROP_THREADS'])
+except KeyError:
+	print("'TF_NUM_INTEROP_THREADS' not found, adding and setting to '1'")
+	os.environ['TF_NUM_INTEROP_THREADS'] = '1'
+try:
+	print("TF_NUM_INTRAOP_THREADS =", os.environ['TF_NUM_INTRAOP_THREADS'])
+except KeyError:
+	print("'TF_NUM_INTRAOP_THREADS' not found, adding and setting to '1'")
+	os.environ['TF_NUM_INTRAOP_THREADS'] = '1'
+
+N = 4
+
+trialNum = int(sys.argv[1])
+
+init_lr = 0.0001
+
+print("Verifying thread usage params")
+print("Intra Op Threads:\t", tf.config.threading.get_intra_op_parallelism_threads())
+print("Inter Op Threads:\t", tf.config.threading.get_inter_op_parallelism_threads())
+
+sys.stdout.flush()
+
+loss_functions = ('sparse_categorical_crossentropy', 'mean_absolute_error', 'mean_squared_error', 'categorical_crossentropy')
+
+optimizers = [tf.keras.optimizers.Adam(init_lr), tf.keras.optimizers.SGD(init_lr)]
+
+x_subs = []
+y_subs = []
+x_tmp, y_tmp = load_data(DATA_DIR, int(SUBJECT), "T")
+x_subs.append(x_tmp)
+y_subs.append(y_tmp)
+
+X_data = np.concatenate(x_subs)
+Y_data = np.concatenate(y_subs)
+
+p = np.random.permutation(len(X_data))
+X_data = X_data[p]
+Y_data = Y_data[p]
+"""
+diff = min(Y_data)
+Y_data = np_utils.to_categorical(Y_data-diff)
+"""
+if (KFOLD):
+	kfold = KFold(n_splits=KFOLD_NUM, shuffle=True)
+
+	acc_per_fold = []
+	loss_per_fold = []
+
+	acc_arr = []
+	val_acc_arr = []
+	loss_arr = []
+	val_loss_arr = []
+
+
+	fold_no = 1
+
+	for train, test in kfold.split(X_data, Y_data):
+		print("Performing K-Fold {}".format(fold_no))
+		x_train, x_val, y_train, y_val = train_test_split(X_data[train], Y_data[train], test_size=0.1)
+		model = EEGNet3D(N, kernLength = 125)
+		model.compile(loss=loss_functions[0], optimizer=optimizers[0], metrics=['accuracy'])
+		history = model.fit(x_train, y_train, epochs=150, batch_size=50, validation_data=(x_val, y_val), verbose=0, callbacks=[CustomCallback()])
+		
+		acc_arr.append(history.history['accuracy'])
+		val_acc_arr.append(history.history['val_accuracy'])
+		loss_arr.append(history.history['loss'])
+		val_loss_arr.append(history.history['val_loss'])
+
+		loss, acc = model.evaluate(X_data[test], Y_data[test], verbose=0, callbacks=[CustomCallback()])
+
+		sys.stdout.flush()
+		print("Accuracy: %.2f" % acc*100)
+		sys.stdout.flush()
+
+		acc_per_fold.append(acc)
+		loss_per_fold.append(loss)
+		fold_no += 1
+
+	fig, ax = plt.subplots(nrows=KFOLD_NUM+1, ncols=2, figsize=(8, 2*(KFOLD_NUM+1)))
+
+	for k in range(KFOLD_NUM):
+		ax[k, 0].plot(acc_arr[k], color='blue', label="K-Fold {} train acc".format(k+1))
+		ax[k, 0].plot(val_acc_arr[k], color='orange', label="K-Fold {} test acc".format(k+1))
+
+		ax[k, 1].plot(loss_arr[k], color='orange', label="K-Fold {} train loss".format(k+1))
+		ax[k, 1].plot(val_loss_arr[k], color='blue', label="K-Fold {} test loss".format(k+1))
+
+	total_acc = np.mean(acc_arr, axis=0)
+	total_val_acc = np.mean(val_acc_arr, axis=0)
+	total_loss = np.mean(loss_arr, axis=0)
+	total_val_loss = np.mean(val_loss_arr, axis=0)
+
+	acc = np.mean(acc_per_fold)
+	std = np.std(acc_per_fold)
+
+	ax[KFOLD_NUM, 0].plot(total_acc, color='blue', label="Total Train Acc")
+	ax[KFOLD_NUM, 0].plot(total_val_acc, color='orange', label="Total Test Acc")
+
+	ax[KFOLD_NUM, 1].plot(total_loss, color='orange', label="Total Train Loss")
+	ax[KFOLD_NUM, 1].plot(total_val_loss, color='blue', label="Total Test Loss")
+
+	for axis in ax:
+		axis[0].set_ylabel("Accuracy")
+		axis[0].set_title("Accuracy eval")
+
+		axis[1].set_ylabel("Loss")
+		axis[1].set_xlabel("Epoch")
+		axis[1].set_title("Loss eval")
+
+	fig.suptitle("Job ID: {}; Acc: {:.4f} (+/- {:.4f})".format(sys.argv[2], acc, std))
+
+	plt.tight_layout()
+
+	fig.savefig("./seed_plt_figs/fig-{}-{}-{}.png".format(trialNum, KFOLD_NUM, sys.argv[2]), dpi=256)
+	plt.close(fig)
+
+else:
+	x_train, x_test, y_train, y_test = train_test_split(X_data, Y_data, test_size=0.2)
+	x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.2)
+
+	model = EEGNet3D(X, Y, T, F1, F2, D, N, size1, size2, sf)
+	model.compile(loss=loss_functions[0], optimizer=optimizers[0], metrics=['accuracy'])
+	history = model.fit(x_train, y_train, epochs=100, batch_size=50, validation_data=(x_val, y_val), verbose=0, callbacks=[CustomCallback()])
+	loss, acc = model.evaluate(x_test, y_test, verbose=0, callbacks=[CustomCallback()])
+
+	fig, ax = plt.subplots(2)
+
+	ax[0].plot(history.history['accuracy'], label="Training Accuracy")
+	ax[0].plot(history.history['val_accuracy'], label="Testing Accuracy")
+	ax[0].set_ylabel("Accuracy")
+	ax[0].set_title("Accuracy eval")
+	
+	ax[1].plot(history.history['loss'], label="Training Loss")
+	ax[1].plot(history.history['val_loss'], label="Testing Loss")
+	ax[1].set_ylabel("Loss")
+	ax[1].set_xlabel("Epoch")
+	ax[1].set_title("Loss eval")
+	
+	fig.suptitle("Job ID: {}; Acc: {}".format(sys.argv[2], acc))
+
+	fig.savefig("./plt_figs/fig-{}-{}-{}.png".format(trialNum, 1 if not KFOLD else KFOLD_NUM, sys.argv[2]))	
+	plt.close(fig)
+
+with open(OUT_FILE, "a") as f:
+	new_entry = "{} - Motor - Subject {} - {}-Fold - {:.2f}%\n".format(sys.argv[2], SUBJECT, KFOLD_NUM, acc*100)
+	f.write(new_entry)
+
+print("Accuracy: %.2f" % (acc*100))

@@ -1,0 +1,94 @@
+Found  GPU
+Running trial without GPU using CPU
+Loading libraries
+Running OAT Trial 1 with ID 311757
+'TF_NUM_INTEROP_THREADS' not found, adding and setting to '1'
+'TF_NUM_INTRAOP_THREADS' not found, adding and setting to '1'
+Invalid device or cannot modify virtual device once initialized
+TF_NUM_INTEROP_THREADS = 1
+TF_NUM_INTRAOP_THREADS = 1
+Verifying thread usage params
+Intra Op Threads:	 0
+Inter Op Threads:	 0
+Performing K-Fold 1
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e4-8>
+Subject: Job 311757[1]: <job_arr[1]> in cluster <henry2> Exited
+
+Job <job_arr[1]> was submitted from host <login01> by user <mjhouk> in cluster <henry2> at Thu Jun 24 00:00:52 2021
+Job was executed on host(s) <n2e4-8>, in queue <serial>, as user <mjhouk> in cluster <henry2> at Thu Jun 24 00:26:43 2021
+</home/mjhouk> was used as the home directory.
+</home/mjhouk/MB3DCNN/Groups> was used as the working directory.
+Started at Thu Jun 24 00:26:43 2021
+Terminated at Thu Jun 24 00:27:17 2021
+Results reported at Thu Jun 24 00:27:17 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/csh
+
+#BSUB -J job_arr[1]
+#BSUB -x
+#BSUB -R "span[hosts=1]"
+#BSUB -W 900
+#BSUB -o ./out/trial-%I-%J.out
+#BSUB -e ./out/trial-%I-%J.err
+
+set gpu = "`nvidia-smi --query-gpu=gpu_name --format=csv,noheader`"
+echo "Found $gpu GPU"
+if ( "$gpu" =~ *"K20m"* ) then
+	set cuda_cmd = "module load cuda/10.1"
+	set env_cmd = "conda activate tf220_py377"
+else if ( "$gpu" =~ *"P100"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"GTX 1080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else if ( "$gpu" =~ *"RTX 2080"* ) then
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+else
+	echo "Running trial without GPU using CPU" 
+	set cuda_cmd = "module load cuda/11.0"
+	set env_cmd = "conda activate tf241_py377"
+endif
+
+echo "Loading libraries"
+
+eval $env_cmd
+eval $cuda_cmd
+
+setenv OMP_NUM_THREADS 2
+
+echo "Running OAT Trial $LSB_JOBINDEX with ID $LSB_JOBID"
+python runEmotion.py ${LSB_JOBINDEX} ${LSB_JOBID}
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   12.49 sec.
+    Max Memory :                                 29.43 MB
+    Average Memory :                             29.43 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   41 sec.
+    Turnaround time :                            1585 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./out/trial-1-311757.err> for stderr output of this job.
+

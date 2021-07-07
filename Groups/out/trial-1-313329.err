@@ -1,0 +1,11 @@
+2021-06-25 01:36:01.731891: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+Traceback (most recent call last):
+  File "runEmotion.py", line 118, in <module>
+    history = model.fit(x_train, y_train, epochs=300, batch_size=50, validation_data=(x_val, y_val), verbose=0, callbacks=[CustomCallback()])
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 1145, in fit
+    callbacks.on_epoch_end(epoch, epoch_logs)
+  File "/usr/local/usrapps/multibranch/mjhouk/tf241_py377/lib/python3.7/site-packages/tensorflow/python/keras/callbacks.py", line 432, in on_epoch_end
+    callback.on_epoch_end(epoch, numpy_logs)
+  File "runEmotion.py", line 54, in on_epoch_end
+    sys.stdout.flush()
+OSError: [Errno 122] Disk quota exceeded
